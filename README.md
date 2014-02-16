@@ -11,9 +11,9 @@ It provides a beautiful way to automate your web tests.
 
 ## How it works?
 
-    1. Write a unit test with [Mocha](http://visionmedia.github.io/mocha/)
-    2. Specify the test scenario in JSON or a Google Doc
-    3. Run it : mocha spec/myWebTest
+1. Write a unit test with [Mocha](http://visionmedia.github.io/mocha/)
+2. Specify the test scenario in JSON or a Google Doc
+3. Run it : mocha spec/myWebTest
 
 ## Test scenario from JSON :
 
