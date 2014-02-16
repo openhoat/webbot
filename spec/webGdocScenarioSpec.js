@@ -12,7 +12,7 @@ describe('Automate web visit', function () {
   });
   it('should play a google doc web test scenario', function (done) {
     this.timeout(20000);
-    webBot = new WebBot(null, null, null, baseDir);
+    webBot = new WebBot(baseDir);
     Q().
       then(function () {
         var deferred = Q.defer();

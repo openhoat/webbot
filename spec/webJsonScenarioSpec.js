@@ -13,7 +13,7 @@ describe('Automate web visit', function () {
   it('should play a json web test scenario', function (done) {
     var jsonWebScenario;
     this.timeout(2000);
-    webBot = new WebBot(null, null, null, baseDir);
+    webBot = new WebBot(baseDir);
     jsonWebScenario = [
       { index: '1', action: 'init', param1: 'http://localhost:3000', param2: '' },
       { index: '2', action: 'visit', param1: '/hello.html', param2: '' },
