@@ -1,6 +1,5 @@
 {
   "name": "webbotjs",
-  "private": true,
   "version": "0.0.1",
   "description": "WebBotjs helps you to test your web sites",
   "main": "lib/web-bot",
