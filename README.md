@@ -117,6 +117,47 @@ To specify a Google Account, simply add it to options :
         );
 ```
 
+## Actions
+
+An action is a component defined by a name and a js file.
+The action is execute from its name, and optionnal parameters.
+Look at the examples in [lib/actions](https://github.com/openhoat/webbotjs/tree/master/lib/actions) for more information.
+
+Default provided actions :
+
+- init : initialize the headless browser with a web site base url
+- visit : browse an URI path of the web site
+- assert : assert something given with any parameters using mocha syntax
+- assertText : assert a selector text content is equal to an expected string
+- click : click on a hyperlink in the current page, specified by a selector
+- html : log the html content of the current page
+- preview : preview the current page in a real browser (end the current test scenario)
+
+## Extend
+
+To extend WebBotjs, feel free to create new actions and add them to WebBot, between constructor call and init().
+
+```javascript
+    webBot = new WebBot(baseDir);
+    webBot.addAction('myAction',path.join(__dirname, 'lib','my-action.js'));
+    webBot.init(...); ...
+```
+
+Or simply add it in your config file :
+
+```javascript
+var path = require('path')
+  , config = {
+  log: {
+    level: 'INFO'
+  },
+  actions: {
+    myAction: path.join(__dirname, '..', 'lib', 'actions', 'my-action.js')
+  }
+};
+module.exports = config;
+```
+
 WebBotjs is mainly powered by [Zombiejs](http://zombie.labnotes.org/) and [Mocha](http://visionmedia.github.io/mocha/)
 
 Enjoy !
