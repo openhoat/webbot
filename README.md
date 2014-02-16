@@ -120,7 +120,9 @@ To specify a Google Account, simply add it to options :
 ## Actions
 
 An action is a component defined by a name and a js file.
+
 The action is execute from its name, and optionnal parameters.
+
 Look at the examples in [lib/actions](https://github.com/openhoat/webbotjs/tree/master/lib/actions) for more information.
 
 Default provided actions :
@@ -135,7 +137,7 @@ Default provided actions :
 
 ## Extend
 
-To extend WebBotjs, feel free to create new actions and add them to WebBot, between constructor call and init().
+To extend WebBotjs, feel free to create new actions and add them at runtime for your custom scenario.
 
 ```javascript
     webBot = new WebBot(baseDir);
