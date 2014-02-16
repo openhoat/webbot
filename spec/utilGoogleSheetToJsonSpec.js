@@ -21,9 +21,10 @@ describe('util googleSheetToJson', function () {
         expect(result).to.be.ok;
         expect(result).to.be.instanceof(Array);
         expect(result).to.eql([
-          { index: '1', action: 'init', param1: 'http://localhost', param2: '' },
+          { index: '1', action: 'init', param1: 'http://localhost:3000', param2: '' },
           { index: '2', action: 'visit', param1: '/hello.html', param2: '' },
-          { index: '3', action: 'assert', param1: "expect(browser.text('title')).to.equal('Hey')", param2: "expect(browser.text('h1')).to.equal('Hello')" }
+          { index: '3', action: 'assert', param1: "expect(browser.text('title')).to.equal('Hey')", param2: "expect(browser.text('h1')).to.equal('Hello')" },
+          { index: '4', action: 'assertText', param1: "body > h2", param2: "this is a test" }
         ]);
       }).
       then(done).
