@@ -1,0 +1,34 @@
+{
+  "name": "webbotjs",
+  "private": true,
+  "version": "0.0.1",
+  "description": "WebBotjs helps you to test your web sites",
+  "main": "lib/web-bot",
+  "author": {
+    "name": "Olivier Penhoat",
+    "email": "openhoat@gmail.com"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "zombie": "2.0.0-alpha25",
+    "canvas": "1.1.3",
+    "tmp": "0.0.23",
+    "q": "1.0.0",
+    "mkdirp": "0.3.5",
+    "google-spreadsheet": "git://github.com/openhoat/node-google-spreadsheets.git",
+    "hw-util": "0.0.12",
+    "log4js": "0.6.9"
+  },
+  "devDependencies": {
+    "grunt": "0.4.1",
+    "grunt-contrib-clean": "0.5.0",
+    "grunt-mkdir": "0.1.1",
+    "grunt-contrib-jshint": "0.7.2",
+    "grunt-mocha-test": "0.7.0",
+    "mocha": "1.14.0",
+    "chai": "1.8.1",
+    "xunit-file": "0.0.5"
+  }
+}
