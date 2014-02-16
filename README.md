@@ -3,7 +3,17 @@
 ## What's webbotjs?
 
 It provides a beautiful way to automate your web tests.
-All you have to do is to write a test with [Mocha](http://visionmedia.github.io/mocha/), specify the test scenario in JSON or a Google Doc, and run it.
+
+## Installation
+
+        # cd my-nodejs-project
+        # npm install webbotjs --save
+
+## How it works?
+
+    1. Write a unit test with [Mocha](http://visionmedia.github.io/mocha/)
+    2. Specify the test scenario in JSON or a Google Doc
+    3. Run it : mocha spec/myWebTest
 
 ## Test scenario from JSON :
 
