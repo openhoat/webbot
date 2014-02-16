@@ -6,8 +6,8 @@ It provides a beautiful way to automate your web tests.
 
 ## Installation
 
-        # cd my-nodejs-project
-        # npm install webbotjs --save
+    # cd my-nodejs-project
+    # npm install webbotjs --save
 
 ## How it works?
 
