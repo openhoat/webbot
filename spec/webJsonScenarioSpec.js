@@ -29,7 +29,7 @@ describe('Automate web visit', function () {
       { action: 'press', param1: "input[type=submit]" },
       { action: 'wait' },
       { action: 'assertText', param1: 'body > h1', param2: 'Done' },
-      { action: 'assertText', param1: 'body > h2', param2: 'this is the valuez' }
+      { action: 'assertText', param1: 'body > h2', param2: 'this is the value' }
     ];
     Q().
       then(function () {
