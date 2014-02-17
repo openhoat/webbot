@@ -11,14 +11,7 @@ describe('Automate web visit', function () {
     specUtil.stopWebServer(webBot.logger, done);
   });
   it('should play a google doc web test scenario', function (done) {
-    var startTime, completed;
     this.timeout(20000);
-    startTime = process.hrtime();
-    completed = function (err) {
-      var elapsedTime = process.hrtime(startTime);
-      webBot.logger.info('WebBotjs test took %s seconds', elapsedTime);
-      done(err);
-    };
     webBot = new WebBot(baseDir);
     Q().
       then(function () {
@@ -43,5 +36,11 @@ describe('Automate web visit', function () {
       }).
       then(completed).
       catch(completed);
+
+    function completed(err) {
+      var elapsedTime = webBot.elapsedTimeMs();
+      webBot.logger.info('WebBotjs test took %s seconds', elapsedTime / 1000);
+      done(err);
+    }
   });
 });
