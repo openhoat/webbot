@@ -17,7 +17,7 @@ WebBotjs provides a beautiful way to automate your web tests.
 
         # mocha spec/myWebTest
 
-4. Mochae returns 0 for a positive test, else 1
+4. Mocha returns 0 for a positive test, else 1
 5. Logs :
 
         [2014-02-17 10:00:20.423] [INFO] console - web server started.
