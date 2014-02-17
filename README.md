@@ -17,6 +17,26 @@ WebBotjs provides a beautiful way to automate your web tests.
 
         # mocha spec/myWebTest
 
+4. Mochae returns 0 for a positive test, else 1
+5. Logs :
+
+        [2014-02-17 10:00:20.423] [INFO] console - web server started.
+        [2014-02-17 10:00:20.424] [INFO] console - #1 start
+        [2014-02-17 10:00:20.425] [INFO] console - #1 initializing browser with site : http://localhost:3000
+        [2014-02-17 10:00:20.425] [INFO] console - #1 end
+        [2014-02-17 10:00:20.426] [INFO] console - #2 start
+        [2014-02-17 10:00:20.426] [INFO] console - #2 visiting : /hello.html
+        [2014-02-17 10:00:20.440] [TRACE] console - incoming request : /hello.html
+        [2014-02-17 10:00:20.457] [INFO] console - #2 browser statusCode : 200
+        [2014-02-17 10:00:20.457] [INFO] console - #2 end
+        html page content : <html><head><title>Hey</title></head><body><h1>Hello</h1><h2>this is a test</h2><form action="/form.html" method="post"><input type="text" name="field" /><input type="submit" value="ok" /></form></body></html>
+        [2014-02-17 10:00:20.462] [INFO] console - #4 start
+        [2014-02-17 10:00:20.462] [INFO] console - #4 checking assertion : expect(browser.text('title')).to.equal('Hey')
+        ...
+        [2014-02-17 10:00:20.493] [INFO] console - #9 end
+        [2014-02-17 10:00:20.493] [INFO] console - WebBotjs test took 0,76312668 seconds
+        [2014-02-17 10:00:20.494] [INFO] console - web server stopped.
+
 ## Configuration
 
 Put a default js or json file in /config at the root of your project :
