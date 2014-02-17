@@ -17,6 +17,7 @@ It provides a beautiful way to automate your web tests.
 
         # mocha spec/myWebTest
 
+
 ## Test scenario from JSON :
 
 Suppose you have a simple http server providing a hello page, the test could be :
@@ -117,6 +118,8 @@ To specify a Google Account, simply add it to options :
         );
 ```
 
+Some test samples are provided in spec/ : [webJsonScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/spec/webJsonScenarioSpec.js) [webGdocScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/spec/webGdocScenarioSpec.js)
+
 ## Actions
 
 An action is a component defined by a name and a js file.
@@ -158,6 +161,24 @@ var path = require('path')
   }
 };
 module.exports = config;
+```
+
+Action my-action.js should implement :
+
+```javascript
+module.exports = {
+  init: function() {},
+  build: function (webBot, step) {
+    return function () { // This function will be called during the execution of the test
+      var param1, param2;
+      webBot.logger.info('#%s start', step.index);
+      param1=util.getItemParam(step, 1);
+      param2=util.getItemParam(step, 2);
+      // do something with param1 and param2
+      webBot.logger.info('#%s end', step.index);
+    };
+  }
+};
 ```
 
 WebBotjs is mainly powered by [Zombiejs](http://zombie.labnotes.org/) and [Mocha](http://visionmedia.github.io/mocha/)
