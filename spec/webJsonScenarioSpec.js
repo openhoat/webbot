@@ -11,8 +11,14 @@ describe('Automate web visit', function () {
     specUtil.stopWebServer(webBot.logger, done);
   });
   it('should play a json web test scenario', function (done) {
-    var jsonWebScenario;
+    var startTime, completed, jsonWebScenario;
     this.timeout(2000);
+    startTime = process.hrtime();
+    completed = function (err) {
+      var elapsedTime = process.hrtime(startTime);
+      webBot.logger.info('WebBotjs test took %s seconds', elapsedTime);
+      done(err);
+    };
     webBot = new WebBot(baseDir);
     jsonWebScenario = [
       { action: 'init', param1: 'http://localhost:3000', param2: '' },
@@ -41,7 +47,7 @@ describe('Automate web visit', function () {
         webBot.runStepsFromJsonScenario(jsonWebScenario, deferred.makeNodeResolver());
         return deferred.promise;
       }).
-      then(done).
-      catch(done);
+      then(completed).
+      catch(completed);
   });
 });
