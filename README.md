@@ -19,10 +19,10 @@ It provides a beautiful way to automate your web tests.
 
 ## Configuration
 
-Put a default.js|json file in /config at the root of your project :
+Put a default js or json file in /config at the root of your project :
 
 ```javascript
-module.exports = {
+module.exports = { // config/default.js
   log: {
     level: 'INFO' // ERROR, TRACE, ... see log4js for more information
   },
@@ -40,7 +40,7 @@ module.exports = {
 Suppose you have a simple http server providing a hello page, the test could be :
 
 ```javascript
-var WebBot = require('webbotjs')
+var WebBot = require('webbotjs') // spec/myJsonSpec.js
   , webBot;
 
 describe('Automate web visit', function () {
@@ -71,7 +71,7 @@ WebBotjs will execute all steps in the JSON array to initialize the browser, vis
 Now let's see the same test with a scenario written in a [simple Google Doc](https://docs.google.com/spreadsheet/pub?key=0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc&output=html) :
 
 ```javascript
-var WebBot = require('webbotjs')
+var WebBot = require('webbotjs') // spec/myGdocSpec.js
   , webBot;
 
 describe('Automate web visit', function () {
@@ -125,6 +125,8 @@ Default provided actions :
 - html : log the html content of the current page
 - preview : preview the current page in a real browser (end the current test scenario)
 
+More actions are coming soon...
+
 ## Extend
 
 To extend WebBotjs, feel free to create new actions and add them at runtime for your custom scenario.
@@ -152,7 +154,7 @@ module.exports = {
 Action my-action.js should implement :
 
 ```javascript
-module.exports = {
+module.exports = { // lib/actions/my-action.js
   init: function() {},
   build: function (webBot, step) {
     return function () { // This function will be called during the execution of the test
