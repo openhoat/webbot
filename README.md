@@ -17,7 +17,7 @@ WebBotjs provides a beautiful way to automate your web tests.
 
         # mocha spec/myWebTest
 
-4. Mocha returns 0 for a success test :
+4. Mocha returns 0 for a success test, and outputs info logs :
 
         [2014-02-17 10:00:20.423] [INFO] console - web server started.
         [2014-02-17 10:00:20.424] [INFO] console - #1 start
