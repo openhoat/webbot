@@ -17,24 +17,37 @@ It provides a beautiful way to automate your web tests.
 
         # mocha spec/myWebTest
 
+## Configuration
+
+Put a default.js|json file in /config at the root of your project :
+
+```javascript
+module.exports = {
+  log: {
+    level: 'INFO' // ERROR, TRACE, ... see log4js for more information
+  },
+  browser: { // Default values, feel free to change
+    runScripts: true,
+    loadCSS: false,
+    maxWait: 3 * 60,
+    debug: false
+  }
+};
+```
 
 ## Test scenario from JSON :
 
 Suppose you have a simple http server providing a hello page, the test could be :
 
 ```javascript
-var path = require('path')
-  , Q = require('q')
-  , WebBot = require('webbotjs')
-  , baseDir, webBot;
-
-baseDir = path.join(__dirname, '..');
+var WebBot = require('webbotjs')
+  , webBot;
 
 describe('Automate web visit', function () {
   it('should play a json web test scenario', function (done) {
     var jsonWebScenario;
     this.timeout(2000);
-    webBot = new WebBot(baseDir);
+    webBot = new WebBot(__dirname);
     jsonWebScenario = [
       { index: '1', action: 'init', param1: 'http://localhost', param2: '' },
       { index: '2', action: 'visit', param1: '/hello.html', param2: '' },
@@ -44,19 +57,9 @@ describe('Automate web visit', function () {
         param2: "expect(browser.text('h1')).to.equal('Hello')"
       }
     ];
-    Q().
-      then(function () {
-        var deferred = Q.defer();
-        webBot.init(deferred.makeNodeResolver());
-        return deferred.promise;
-      }).
-      then(function () {
-        var deferred = Q.defer();
-        webBot.runStepsFromJsonScenario(jsonWebScenario, deferred.makeNodeResolver());
-        return deferred.promise;
-      }).
-      then(done).
-      catch(done);
+    webBot.runStepsFromJsonScenario(jsonWebScenario, function(err) {
+        ...
+    });
   });
 });
 ```
@@ -68,40 +71,24 @@ WebBotjs will execute all steps in the JSON array to initialize the browser, vis
 Now let's see the same test with a scenario written in a [simple Google Doc](https://docs.google.com/spreadsheet/pub?key=0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc&output=html) :
 
 ```javascript
-var path = require('path')
-  , Q = require('q')
-  , WebBot = require('webbotjs')
-  , baseDir, webBot;
-
-baseDir = path.join(__dirname, '..');
+var WebBot = require('webbotjs')
+  , webBot;
 
 describe('Automate web visit', function () {
   it('should play a google doc web test scenario', function (done) {
     this.timeout(20000);
-    webBot = new WebBot(baseDir);
-    Q().
-      then(function () {
-        var deferred = Q.defer();
-        webBot.init(deferred.makeNodeResolver());
-        return deferred.promise;
-      }).
-      then(function () {
-        var deferred = Q.defer();
-        webBot.runStepsFromGdocScenario({
-            gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
-            sheetIndex: 0
-          },
-          deferred.makeNodeResolver()
-        );
-        return deferred.promise;
-      }).
-      then(done).
-      catch(done);
+    webBot = new WebBot(__dirname);
+    webBot.runStepsFromGdocScenario({
+        gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
+        sheetIndex: 0
+      }, function(err) {
+        ...
+      });
   });
 });
 ```
 
-WebBotjs is able to download a Google Doc if it is published on the web, if an account is specified (login / password), or an oAuth token.
+WebBotjs is able to download a Google Doc if it is published on the web, if an account is specified (login / password), or if an oAuth token is specified.
 
 To specify a Google Account, simply add it to options :
 
@@ -113,12 +100,12 @@ To specify a Google Account, simply add it to options :
               login: 'johndoe',
               password: 'thesecret'
             }
-          },
-          deferred.makeNodeResolver()
-        );
+          }, function(err) {
+            ...
+          });
 ```
 
-Some test samples are provided in spec/ : [webJsonScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/spec/webJsonScenarioSpec.js) [webGdocScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/spec/webGdocScenarioSpec.js)
+Test samples are provided in /spec : [webJsonScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/spec/webJsonScenarioSpec.js) [webGdocScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/spec/webGdocScenarioSpec.js)
 
 ## Actions
 
@@ -126,7 +113,7 @@ An action is a component defined by a name and a js file.
 
 The action is execute from its name, and optionnal parameters.
 
-Look at the examples in [lib/actions](https://github.com/openhoat/webbotjs/tree/master/lib/actions) for more information.
+Look at the examples in [/lib/actions](https://github.com/openhoat/webbotjs/tree/master/lib/actions) for more information.
 
 Default provided actions :
 
@@ -148,11 +135,11 @@ To extend WebBotjs, feel free to create new actions and add them at runtime for 
     webBot.init(...); ...
 ```
 
-Or simply add it in your config file :
+Or simply add it in /config/default.js|json :
 
 ```javascript
-var path = require('path')
-  , config = {
+var path = require('path');
+module.exports = {
   log: {
     level: 'INFO'
   },
@@ -160,7 +147,6 @@ var path = require('path')
     myAction: path.join(__dirname, '..', 'lib', 'actions', 'my-action.js')
   }
 };
-module.exports = config;
 ```
 
 Action my-action.js should implement :
@@ -174,7 +160,7 @@ module.exports = {
       webBot.logger.info('#%s start', step.index);
       param1=util.getItemParam(step, 1);
       param2=util.getItemParam(step, 2);
-      // do something with param1 and param2
+      // do something with param1, param2, webBot.browser (ie zombiejs), ...
       webBot.logger.info('#%s end', step.index);
     };
   }
