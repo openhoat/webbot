@@ -105,6 +105,18 @@ To specify a Google Account, simply add it to options :
           });
 ```
 
+To specify a oAuth token (previously got from a usual 3rd party module for example) :
+
+```javascript
+        webBot.runStepsFromGdocScenario({
+            gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
+            sheetIndex: 0,
+            accessToken: 'TJSRYJ67354UZSGHS67SH3467356ZEFH'
+          }, function(err) {
+            ...
+          });
+```
+
 Test samples are provided in /spec : [webJsonScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/spec/webJsonScenarioSpec.js) [webGdocScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/spec/webGdocScenarioSpec.js)
 
 ## Actions
