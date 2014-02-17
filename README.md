@@ -166,7 +166,7 @@ Default provided actions :
 - visit : browse an URI path of the web site
 - assert : assert something given with any parameters using mocha syntax
 - assertText : assert a selector text content is equal to an expected string
-- assertTimeLt : assert elapsed time since the beginning of the test does not exceed the specified duration in ms
+- assertTimeLe : assert elapsed time since the beginning of the test does not exceed the specified duration in ms
 - click : click on a hyperlink in the current page, specified by a selector
 - fill : fill a form field with a value
 - press : press a button
