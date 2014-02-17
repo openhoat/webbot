@@ -17,7 +17,8 @@ describe('Automate web visit', function () {
     jsonWebScenario = [
       { index: '1', action: 'init', param1: 'http://localhost:3000', param2: '' },
       { index: '2', action: 'visit', param1: '/hello.html', param2: '' },
-      { index: '3', action: 'assert', param1: "expect(browser.text('title')).to.equal('Hey')", param2: "expect(browser.text('h1')).to.equal('Hello')" }
+      { index: '3', action: 'html' },
+      { index: '4', action: 'assert', param1: "expect(browser.text('title')).to.equal('Hey')", param2: "expect(browser.text('h1')).to.equal('Hello')" }
     ];
     Q().
       then(function () {
