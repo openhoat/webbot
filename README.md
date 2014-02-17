@@ -17,8 +17,7 @@ WebBotjs provides a beautiful way to automate your web tests.
 
         # mocha spec/myWebTest
 
-4. Mocha returns 0 for a positive test, else 1
-5. Logs :
+4. Mocha returns 0 for a success test :
 
         [2014-02-17 10:00:20.423] [INFO] console - web server started.
         [2014-02-17 10:00:20.424] [INFO] console - #1 start
@@ -36,6 +35,20 @@ WebBotjs provides a beautiful way to automate your web tests.
         [2014-02-17 10:00:20.493] [INFO] console - #9 end
         [2014-02-17 10:00:20.493] [INFO] console - WebBotjs test took 0,76312668 seconds
         [2014-02-17 10:00:20.494] [INFO] console - web server stopped.
+
+5. Mocha returns 1 for a failing test :
+
+        0 passing (81ms)
+        1 failing
+
+        1) Automate web visit should play a json web test scenario:
+
+              AssertionError: expected 'this is the value' to equal 'this is the valuez'
+              + expected - actual
+
+              +"this is the valuez"
+              -"this is the value"
+
 
 ## Configuration
 
