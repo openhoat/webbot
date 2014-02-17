@@ -15,10 +15,15 @@ describe('Automate web visit', function () {
     this.timeout(2000);
     webBot = new WebBot(baseDir);
     jsonWebScenario = [
-      { index: '1', action: 'init', param1: 'http://localhost:3000', param2: '' },
-      { index: '2', action: 'visit', param1: '/hello.html', param2: '' },
-      { index: '3', action: 'html' },
-      { index: '4', action: 'assert', param1: "expect(browser.text('title')).to.equal('Hey')", param2: "expect(browser.text('h1')).to.equal('Hello')" }
+      { action: 'init', param1: 'http://localhost:3000', param2: '' },
+      { action: 'visit', param1: '/hello.html', param2: '' },
+      { action: 'html' },
+      { action: 'assert', param1: "expect(browser.text('title')).to.equal('Hey')", param2: "expect(browser.text('h1')).to.equal('Hello')" },
+      { action: 'fill', param1: "input[type=text]", param2: "this is the value" },
+      { action: 'press', param1: "input[type=submit]" },
+      { action: 'wait' },
+      { action: 'assertText', param1: 'body > h1', param2: 'Done' },
+      { action: 'assertText', param1: 'body > h2', param2: 'this is the value' }
     ];
     Q().
       then(function () {

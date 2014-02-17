@@ -49,10 +49,10 @@ describe('Automate web visit', function () {
     this.timeout(2000);
     webBot = new WebBot(__dirname);
     jsonWebScenario = [
-      { index: '1', action: 'init', param1: 'http://localhost', param2: '' },
-      { index: '2', action: 'visit', param1: '/hello.html', param2: '' },
+      { action: 'init', param1: 'http://localhost', param2: '' },
+      { action: 'visit', param1: '/hello.html', param2: '' },
       {
-        index: '3', action: 'assert',
+        action: 'assert',
         param1: "expect(browser.text('title')).to.equal('Hey')",
         param2: "expect(browser.text('h1')).to.equal('Hello')"
       }
@@ -134,6 +134,9 @@ Default provided actions :
 - assert : assert something given with any parameters using mocha syntax
 - assertText : assert a selector text content is equal to an expected string
 - click : click on a hyperlink in the current page, specified by a selector
+- fill : fill a form field with a value
+- press : press a button
+- wait : wait until the browser is ready, then go to next step
 - html : log the html content of the current page
 - preview : preview the current page in a real browser (end the current test scenario)
 
