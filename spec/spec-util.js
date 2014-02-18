@@ -31,7 +31,10 @@ that = {
         res.end();
       }
     });
-    httpServer.listen(3000, function () {
+    httpServer.listen(3000, function (err) {
+      if (err) {
+        return callback(err);
+      }
       logger.info('web server started.');
       callback();
     });
