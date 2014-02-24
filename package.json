@@ -32,7 +32,8 @@
     "google-spreadsheet": "git://github.com/openhoat/node-google-spreadsheets.git",
     "hw-util": "0.0.12",
     "log4js": "0.6.9",
-    "chai": "1.8.1"
+    "chai": "1.8.1",
+    "request": "2.34.0"
   },
   "devDependencies": {
     "grunt": "0.4.1",

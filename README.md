@@ -174,7 +174,14 @@ Default provided actions :
 - html : log the html content of the current page
 - preview : preview the current page in a real browser (end the current test scenario)
 
-More actions are coming soon...
+New web service actions since v0.0.8 : for more informatons look at [wsJsonScenarioSpec.js](https://github.com/openhoat/webbotjs/tree/master/spec/wsJsonScenarioSpec.js)
+
+- wsGet : send a GET request to a web service (params : url, expected http status code, optionnal expected content type, optionnal expected content)
+- wsPost : send a POST request to a web service (params : url, body data, expected http status code, optionnal expected content type, optionnal expected content)
+- wsPut : send a PUT request to a web service (params : url, body data, expected http status code, optionnal expected content type, optionnal expected content)
+- wsDelete : send a DELETE request to a web service (params : url, expected http status code, optionnal expected content type, optionnal expected content)
+
+If it does not match your needs feel free to extend and contribute
 
 ## Extend
 
