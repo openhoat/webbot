@@ -10,8 +10,8 @@ describe('Automate web service test', function () {
   afterEach(function (done) {
     specUtil.stopWebServer(webBot.logger, done);
   });
-  it('should play a json web test scenario', function (done) {
-    var jsonWebScenario = require('./wsScenario1.json');
+  it('should play a downloaded json web test scenario', function (done) {
+    var scenarioUri= 'http://localhost:3000/wsScenario1.json';
     this.timeout(2000);
     webBot = new WebBot(baseDir);
     Q().
@@ -27,7 +27,7 @@ describe('Automate web service test', function () {
       }).
       then(function () {
         var deferred = Q.defer();
-        webBot.runStepsFromJsonScenario(jsonWebScenario, deferred.makeNodeResolver());
+        webBot.runStepsFromDlJsonScenario(scenarioUri, deferred.makeNodeResolver());
         return deferred.promise;
       }).
       then(completed).

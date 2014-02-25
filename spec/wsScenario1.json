@@ -1,0 +1,57 @@
+[
+  {
+    "action": "wsGet",
+    "param1": "http://localhost:3000/ws/contact/123",
+    "param2": 200,
+    "param3": "application/json",
+    "param4": "{ \"id\": \"123\", \"firstName\" : \"John\", \"lastName\" : \"Doe\" }"
+  },
+  {
+    "action": "wsGet",
+    "param1": "http://localhost:3000/ws/contact/124",
+    "param2": 404
+  },
+  {
+    "action": "wsPost",
+    "param1": "http://localhost:3000/ws/contact",
+    "param2": "id=124&firstName=Jack&lastName=Russell",
+    "param3": 201
+  },
+  {
+    "action": "wsGet",
+    "param1": "http://localhost:3000/ws/contact/124",
+    "param2": 200,
+    "param3": "application/json",
+    "param4": "{ \"id\": \"124\", \"firstName\" : \"Jack\", \"lastName\" : \"Russell\" }"
+  },
+  {
+    "action": "wsPut",
+    "param1": "http://localhost:3000/ws/contact/123",
+    "param2": "firstName=Jennifer&lastName=Lopez",
+    "param3": 204
+  },
+  {
+    "action": "wsGet",
+    "param1": "http://localhost:3000/ws/contact/123",
+    "param2": 200,
+    "param3": "application/json",
+    "param4": "{ \"id\": \"123\", \"firstName\" : \"Jennifer\", \"lastName\" : \"Lopez\" }"
+  },
+  {
+    "action": "wsDelete",
+    "param1": "http://localhost:3000/ws/contact/123",
+    "param2": 204
+  },
+  {
+    "action": "wsGet",
+    "param1": "http://localhost:3000/ws/contact/124",
+    "param2": 200,
+    "param3": "application/json",
+    "param4": "{ \"id\": \"124\", \"firstName\" : \"Jack\", \"lastName\" : \"Russell\" }"
+  },
+  {
+    "action": "wsGet",
+    "param1": "http://localhost:3000/ws/contact/123",
+    "param2": 404
+  }
+]

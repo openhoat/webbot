@@ -33,6 +33,14 @@ that = {
             res.writeHead(400);
             res.end();
           }
+        } else if (req.url === '/webScenario1.json' && req.method === 'GET') {
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.write(JSON.stringify(require('./webScenario1.json')));
+          res.end();
+        } else if (req.url === '/wsScenario1.json' && req.method === 'GET') {
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.write(JSON.stringify(require('./wsScenario1.json')));
+          res.end();
         }
       }
     );

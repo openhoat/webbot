@@ -11,20 +11,9 @@ describe('Automate web visit', function () {
     specUtil.stopWebServer(webBot.logger, done);
   });
   it('should play a json web test scenario', function (done) {
-    var jsonWebScenario;
+    var jsonWebScenario = require('./webScenario1.json');
     this.timeout(2000);
     webBot = new WebBot(baseDir);
-    jsonWebScenario = [
-      { action: 'init', param1: 'http://localhost:3000', param2: '' },
-      { action: 'visit', param1: '/hello.html', param2: '' },
-      { action: 'html' },
-      { action: 'assert', param1: "expect(browser.text('title')).to.equal('Hey')", param2: "expect(browser.text('h1')).to.equal('Hello')" },
-      { action: 'fill', param1: "input[type=text]", param2: "this is the value" },
-      { action: 'press', param1: "input[type=submit]" },
-      { action: 'wait' },
-      { action: 'assertText', param1: 'body > h1', param2: 'Done' },
-      { action: 'assertText', param1: 'body > h2', param2: 'this is the value' }
-    ];
     Q().
       then(function () {
         var deferred = Q.defer();
