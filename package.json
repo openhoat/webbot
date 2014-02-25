@@ -24,7 +24,7 @@
     "node": "*"
   },
   "scripts": {
-    "test": "mocha spec/webJsonScenarioSpec spec/wsJsonScenarioSpec"
+    "test": "mocha spec/webJsonDlScenarioSpec.js spec/webJsonScenarioSpec.js spec/wsJsonDlScenarioSpec.js spec/wsJsonScenarioSpec.js"
   },
   "dependencies": {
     "zombie": "2.0.0-alpha25",

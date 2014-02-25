@@ -2,9 +2,9 @@ var http = require('http')
   , querystring = require('querystring')
   , util = require('../lib/util')
   , that, httpServer
-  , entities;
+  , initialEntities, entities;
 
-entities = [
+initialEntities = [
   {
     id: '123',
     firstName: 'John',
@@ -14,6 +14,7 @@ entities = [
 
 that = {
   startWebServer: function (logger, callback) {
+    entities = JSON.parse(JSON.stringify(initialEntities));
     httpServer = http.createServer(function (req, res) {
         logger.trace('incoming request : %s', req.url);
         if (req.url === '/hello.html' && req.method === 'GET') {
