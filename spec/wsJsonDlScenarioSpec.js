@@ -1,37 +1,22 @@
 var path = require('path')
-  , Q = require('q')
   , WebBot = require('../lib/web-bot')
-  , specUtil = require('./spec-util')
-  , baseDir, webBot;
-
-baseDir = path.join(__dirname, '..');
+  , specUtil = require('./spec-util');
 
 describe('Automate web service test', function () {
+  var baseDir, config;
+  baseDir = path.join(__dirname, '..');
+  config = WebBot.loadConfig(baseDir);
+  beforeEach(function (done) {
+    specUtil.startWebServer(config.logger, done);
+  });
   afterEach(function (done) {
-    specUtil.stopWebServer(webBot.logger, done);
+    specUtil.stopWebServer(config.logger, done);
   });
   it('should play a downloaded json web test scenario', function (done) {
-    var scenarioUri= 'http://localhost:3000/wsScenario1.json';
+    var webBot, scenarioUri = 'http://localhost:3000/wsScenario1.json';
     this.timeout(2000);
     webBot = new WebBot(baseDir);
-    Q().
-      then(function () {
-        var deferred = Q.defer();
-        webBot.init(deferred.makeNodeResolver());
-        return deferred.promise;
-      }).
-      then(function () {
-        var deferred = Q.defer();
-        specUtil.startWebServer(webBot.logger, deferred.makeNodeResolver());
-        return deferred.promise;
-      }).
-      then(function () {
-        var deferred = Q.defer();
-        webBot.runStepsFromDlJsonScenario(scenarioUri, deferred.makeNodeResolver());
-        return deferred.promise;
-      }).
-      then(completed).
-      catch(completed);
+    webBot.runStepsFromDlJsonScenario(scenarioUri, completed);
 
     function completed(err) {
       var elapsedTime = webBot.elapsedTime();

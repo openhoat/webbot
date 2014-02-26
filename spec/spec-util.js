@@ -45,6 +45,13 @@ that = {
         }
       }
     );
+    httpServer.on('error', function (err) {
+      if (err.code === 'EADDRINUSE') {
+        httpServer = null;
+        return callback(null, false);
+      }
+      callback(err);
+    });
     httpServer.listen(3000, function (err) {
       if (err) {
         return callback(err);
@@ -54,6 +61,9 @@ that = {
     });
   },
   stopWebServer: function (logger, callback) {
+    if (!httpServer) {
+      return callback(null, false);
+    }
     httpServer.close(function () {
       logger.info('web server stopped.');
       callback();
