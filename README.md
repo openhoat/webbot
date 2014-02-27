@@ -2,7 +2,7 @@
 
 ## What's WebBotjs?
 
-WebBotjs provides a beautiful way to automate your web tests.
+WebBotjs provides a beautiful way to automate web functional tests.
 
 ## Installation
 
@@ -17,15 +17,15 @@ To use it in your own project and write your web tests :
 
 ## Usage
 
-Run a scenario test from a JSON file :
+Run a test scenario from a JSON file :
 
     # webbot -j ./webScenario1.json
 
-Run a scenario test from a downloaded JSON file :
+Run a test scenario from a downloaded JSON file :
 
     # webbot -d http://localhost:3000/webScenario1.json
 
-Run a scenario test from a Google Doc sheet :
+Run a test scenario from a Google Doc sheet :
 
     # webbot -g 0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc -i 1 -t 10000
 
