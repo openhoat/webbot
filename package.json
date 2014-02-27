@@ -23,6 +23,9 @@
   "engines": {
     "node": "*"
   },
+  "bin": {
+    "webbot": "./bin/webbot"
+  },
   "scripts": {
     "test": "mocha spec/webJsonDlScenarioSpec.js spec/webJsonScenarioSpec.js spec/wsJsonDlScenarioSpec.js spec/wsJsonScenarioSpec.js"
   },
