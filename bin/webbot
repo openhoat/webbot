@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+require('../lib/webbot-cmd');
+
+/**
+ * Examples :
+ *
+ * ./bin/benchit -n 1000 -c 200 -p 5s "mocha -C -t 10000 -R spec /home/openhoat/dev/nodejs/benchitjs/spec/webCrawlerSpec"
+ *
+ * ./bin/benchit -n 200 -c 50 -p 5s "mocha -C -t 10000 -R spec /home/openhoat/dev/nodejs/webbotjs/spec/webGdocScenarioSpec.js"
+ *
+ */

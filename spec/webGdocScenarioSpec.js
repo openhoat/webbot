@@ -1,6 +1,6 @@
 var path = require('path')
   , Q = require('q')
-  , WebBot = require('../lib/web-bot')
+  , WebBot = require('../lib/webbot')
   , specUtil = require('./spec-util');
 
 describe('Automate web visit', function () {

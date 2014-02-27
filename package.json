@@ -2,7 +2,7 @@
   "name": "webbotjs",
   "version": "0.0.9",
   "description": "WebBotjs helps you to test your web sites",
-  "main": "lib/web-bot",
+  "main": "lib/webbot",
   "author": {
     "name": "Olivier Penhoat",
     "email": "openhoat@gmail.com"
@@ -34,7 +34,8 @@
     "log4js": "0.6.9",
     "chai": "1.8.1",
     "request": "2.34.0",
-    "mocha": "1.14.0"
+    "mocha": "1.14.0",
+    "commander": "2.1.0"
   },
   "devDependencies": {
     "grunt": "0.4.1",

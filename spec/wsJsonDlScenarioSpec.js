@@ -1,5 +1,5 @@
 var path = require('path')
-  , WebBot = require('../lib/web-bot')
+  , WebBot = require('../lib/webbot')
   , specUtil = require('./spec-util');
 
 describe('Automate web service test', function () {
