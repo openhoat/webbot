@@ -15,6 +15,7 @@ initialEntities = [
 
 that = {
   startWebServer: function (callback) {
+    callback = util.safeCallback(callback);
     entities = JSON.parse(JSON.stringify(initialEntities));
     httpServer = http.createServer(function (req, res) {
         log.trace('incoming request : %s', req.url);
@@ -43,6 +44,9 @@ that = {
           res.writeHead(200, { 'Content-Type': 'application/json' });
           res.write(JSON.stringify(require('./wsScenario1.json')));
           res.end();
+        } else {
+          res.writeHead(404);
+          res.end();
         }
       }
     );
@@ -62,6 +66,7 @@ that = {
     });
   },
   stopWebServer: function (callback) {
+    callback = util.safeCallback(callback);
     if (!httpServer) {
       return callback(null, false);
     }
