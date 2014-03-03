@@ -235,11 +235,11 @@ module.exports = { // lib/actions/my-action.js
   build: function (webBot, step) {
     return function () { // This function will be called during the execution of the test
       var param1, param2;
-      webBot.logger.info('#%s start', step.index);
+      webBot.log.info('#%s start', step.index);
       param1=util.getItemParam(step, 1);
       param2=util.getItemParam(step, 2);
       // do something with param1, param2, webBot.browser (ie zombiejs), ...
-      webBot.logger.info('#%s end', step.index);
+      webBot.log.info('#%s end', step.index);
     };
   }
 };

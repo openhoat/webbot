@@ -1,5 +1,6 @@
 var http = require('http')
   , querystring = require('querystring')
+  , log = require('../lib/webbot').log
   , util = require('../lib/util')
   , that, httpServer
   , initialEntities, entities;
@@ -13,10 +14,10 @@ initialEntities = [
 ];
 
 that = {
-  startWebServer: function (logger, callback) {
+  startWebServer: function (callback) {
     entities = JSON.parse(JSON.stringify(initialEntities));
     httpServer = http.createServer(function (req, res) {
-        logger.trace('incoming request : %s', req.url);
+        log.trace('incoming request : %s', req.url);
         if (req.url === '/hello.html' && req.method === 'GET') {
           webGetHello(req, res);
         } else if (req.url === '/form.html' && req.method === 'POST') {
@@ -56,16 +57,16 @@ that = {
       if (err) {
         return callback(err);
       }
-      logger.info('web server started.');
+      log.info('web server started.');
       callback();
     });
   },
-  stopWebServer: function (logger, callback) {
+  stopWebServer: function (callback) {
     if (!httpServer) {
       return callback(null, false);
     }
     httpServer.close(function () {
-      logger.info('web server stopped.');
+      log.info('web server stopped.');
       callback();
     });
   }

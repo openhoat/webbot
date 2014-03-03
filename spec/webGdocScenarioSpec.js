@@ -4,14 +4,13 @@ var path = require('path')
   , specUtil = require('./spec-util');
 
 describe('Automate web visit', function () {
-  var baseDir, config;
+  var baseDir;
   baseDir = path.join(__dirname, '..');
-  config = WebBot.loadConfig(baseDir);
   beforeEach(function (done) {
-    specUtil.startWebServer(config.logger, done);
+    specUtil.startWebServer(done);
   });
   afterEach(function (done) {
-    specUtil.stopWebServer(config.logger, done);
+    specUtil.stopWebServer(done);
   });
   it('should play a google doc web test scenario', function (done) {
     var webBot;
@@ -24,7 +23,7 @@ describe('Automate web visit', function () {
 
     function completed(err) {
       var elapsedTime = webBot.elapsedTimeMs();
-      webBot.logger.info('WebBotjs test took %s seconds', elapsedTime / 1000);
+      webBot.log.info('WebBotjs test took %s seconds', elapsedTime / 1000);
       done(err);
     }
   });
