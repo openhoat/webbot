@@ -39,22 +39,22 @@ Run a test scenario from a Google Doc sheet :
 
 4. Mocha returns 0 for a success test, and outputs info logs :
 
-        [2014-02-17 10:00:20.423] [INFO] console - web server started.
-        [2014-02-17 10:00:20.424] [INFO] console - #1 start
-        [2014-02-17 10:00:20.425] [INFO] console - #1 initializing browser with site : http://localhost:3000
-        [2014-02-17 10:00:20.425] [INFO] console - #1 end
-        [2014-02-17 10:00:20.426] [INFO] console - #2 start
-        [2014-02-17 10:00:20.426] [INFO] console - #2 visiting : /hello.html
-        [2014-02-17 10:00:20.440] [TRACE] console - incoming request : /hello.html
-        [2014-02-17 10:00:20.457] [INFO] console - #2 browser statusCode : 200
-        [2014-02-17 10:00:20.457] [INFO] console - #2 end
+        info [2014-02-17 10:00:20.423] [webbot] - web server started.
+        info [2014-02-17 10:00:20.424] [webbot] - #1 start
+        info [2014-02-17 10:00:20.425] [webbot] - #1 initializing browser with site : http://localhost:3000
+        info [2014-02-17 10:00:20.425] [webbot] - #1 end
+        info [2014-02-17 10:00:20.426] [webbot] - #2 start
+        info [2014-02-17 10:00:20.426] [webbot] - #2 visiting : /hello.html
+        info [2014-02-17 10:00:20.440] [webbot] - incoming request : /hello.html
+        info [2014-02-17 10:00:20.457] [webbot] - #2 browser statusCode : 200
+        info [2014-02-17 10:00:20.457] [webbot] - #2 end
         html page content : <html><head><title>Hey</title></head><body><h1>Hello</h1><h2>this is a test</h2><form action="/form.html" method="post"><input type="text" name="field" /><input type="submit" value="ok" /></form></body></html>
-        [2014-02-17 10:00:20.462] [INFO] console - #4 start
-        [2014-02-17 10:00:20.462] [INFO] console - #4 checking assertion : expect(browser.text('title')).to.equal('Hey')
+        info [2014-02-17 10:00:20.462] [webbot] - #4 start
+        info [2014-02-17 10:00:20.462] [webbot] - #4 checking assertion : expect(browser.text('title')).to.equal('Hey')
         ...
-        [2014-02-17 10:00:20.493] [INFO] console - #9 end
-        [2014-02-17 10:00:20.493] [INFO] console - WebBotjs test took 0,76312668 seconds
-        [2014-02-17 10:00:20.494] [INFO] console - web server stopped.
+        info [2014-02-17 10:00:20.493] [webbot] - #9 end
+        info [2014-02-17 10:00:20.493] [webbot] - WebBotjs test took 0,76312668 seconds
+        info [2014-02-17 10:00:20.494] [webbot] - web server stopped.
 
 5. Mocha returns 1 for a failing test :
 
@@ -77,7 +77,7 @@ Put a default js or json file in /config at the root of your project :
 ```javascript
 module.exports = { // config/default.js
   log: {
-    level: 'INFO' // ERROR, TRACE, ... see log4js for more information
+    level: 'info' // error, trace, ... see --help for more informations
   },
   browser: { // Default values, feel free to change
     runScripts: true,
@@ -219,7 +219,7 @@ Or simply add it in /config/default.js|json :
 var path = require('path');
 module.exports = {
   log: {
-    level: 'INFO'
+    level: 'info'
   },
   actions: {
     myAction: path.join(__dirname, '..', 'lib', 'actions', 'my-action.js')
