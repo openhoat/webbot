@@ -27,7 +27,7 @@
     "webbot": "./bin/webbot"
   },
   "scripts": {
-    "test": "mocha spec/webJsonDlScenarioSpec.js spec/webJsonScenarioSpec.js spec/wsJsonDlScenarioSpec.js spec/wsJsonScenarioSpec.js"
+    "test": "mocha spec/webJsonScenarioSpec.js"
   },
   "dependencies": {
     "zombie": "2.0.0-alpha25",
