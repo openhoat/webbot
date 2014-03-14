@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+var cluster = require('cluster')
+  , os = require('os')
+  , cpus = os.cpus().length
+  , i;
+
+if (cluster.isMaster) {
+  for (i = 0; i < cpus; i++) {
+    cluster.fork();
+  }
+  cluster.on('exit', function(worker, code, signal) {
+    console.log('worker ' + worker.process.pid + ' died');
+  });
+} else {
+  require('../spec/spec-util').startWebServer(function(err) {
+    if (err) {
+      console.error('Error :', err);
+    }
+  });
+}
+
+

@@ -1,39 +1,49 @@
 [
   {
     "action": "init",
+    "description": "Init browser",
     "param1": "http://localhost:3000"
   },
   {
     "action": "visit",
+    "description": "Visit hello",
     "param1": "/hello.html"
   },
   {
-    "action": "html"
+    "action": "html",
+    "disabled": true,
+    "description": "Trace html"
   },
   {
     "action": "assert",
+    "description": "Check title is Hey and h1 is Hello",
     "param1": "expect(browser.text('title')).to.equal('Hey')",
     "param2": "expect(browser.text('h1')).to.equal('Hello')"
   },
   {
     "action": "fill",
+    "description": "Fill form",
     "param1": "input[type=text]",
     "param2": "this is the value"
   },
   {
     "action": "press",
+    "description": "Submit form",
     "param1": "input[type=submit]"
   },
   {
-    "action": "wait"
+    "action": "wait",
+    "description": "Wait for page download"
   },
   {
     "action": "assertText",
+    "description": "Check h1 is 'Done'",
     "param1": "body > h1",
     "param2": "Done"
   },
   {
     "action": "assertText",
+    "description": "Check h2 is 'this is the value'",
     "param1": "body > h2",
     "param2": "this is the value"
   }

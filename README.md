@@ -10,12 +10,12 @@ To use it directly :
 
     # npm install -g webbotjs
 
-To use it in your own project and write your web tests :
+To use it in your own project and write your own web tests :
 
     # cd my-nodejs-project
     # npm install webbotjs --save
 
-## Usage
+## Command line usage
 
 Run a test scenario from a JSON file :
 
@@ -29,6 +29,9 @@ Run a test scenario from a Google Doc sheet :
 
     # webbot -g 0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc -i 1 -t 10000
 
+
+Log messages are written to stderr, while test report is written to stdout.
+
 ## How it works?
 
 1. Write a unit test with [Mocha](http://visionmedia.github.io/mocha/)
@@ -39,22 +42,22 @@ Run a test scenario from a Google Doc sheet :
 
 4. Mocha returns 0 for a success test, and outputs info logs :
 
-        info [2014-02-17 10:00:20.423] [webbot] - web server started.
-        info [2014-02-17 10:00:20.424] [webbot] - #1 start
-        info [2014-02-17 10:00:20.425] [webbot] - #1 initializing browser with site : http://localhost:3000
-        info [2014-02-17 10:00:20.425] [webbot] - #1 end
-        info [2014-02-17 10:00:20.426] [webbot] - #2 start
-        info [2014-02-17 10:00:20.426] [webbot] - #2 visiting : /hello.html
-        info [2014-02-17 10:00:20.440] [webbot] - incoming request : /hello.html
-        info [2014-02-17 10:00:20.457] [webbot] - #2 browser statusCode : 200
-        info [2014-02-17 10:00:20.457] [webbot] - #2 end
+        2014-02-17 10:00:20.423 - webbot - INFO  - web server started.
+        2014-02-17 10:00:20.424 - webbot - INFO  - #1 start
+        2014-02-17 10:00:20.425 - webbot - INFO  - #1 initializing browser with site : http://localhost:3000
+        2014-02-17 10:00:20.425 - webbot - INFO  - #1 end
+        2014-02-17 10:00:20.426 - webbot - INFO  - #2 start
+        2014-02-17 10:00:20.426 - webbot - INFO  - #2 visiting : /hello.html
+        2014-02-17 10:00:20.440 - webbot - INFO  - incoming request : /hello.html
+        2014-02-17 10:00:20.457 - webbot - INFO  - #2 browser statusCode : 200
+        2014-02-17 10:00:20.457 - webbot - INFO  - #2 end
         html page content : <html><head><title>Hey</title></head><body><h1>Hello</h1><h2>this is a test</h2><form action="/form.html" method="post"><input type="text" name="field" /><input type="submit" value="ok" /></form></body></html>
-        info [2014-02-17 10:00:20.462] [webbot] - #4 start
-        info [2014-02-17 10:00:20.462] [webbot] - #4 checking assertion : expect(browser.text('title')).to.equal('Hey')
+        2014-02-17 10:00:20.462 - webbot - INFO  - #4 start
+        2014-02-17 10:00:20.462 - webbot - INFO  - #4 checking assertion : expect(browser.text('title')).to.equal('Hey')
         ...
-        info [2014-02-17 10:00:20.493] [webbot] - #9 end
-        info [2014-02-17 10:00:20.493] [webbot] - WebBotjs test took 0,76312668 seconds
-        info [2014-02-17 10:00:20.494] [webbot] - web server stopped.
+        2014-02-17 10:00:20.493 - webbot - INFO  - #9 end
+        2014-02-17 10:00:20.493 - webbot - INFO  - WebBotjs test took 0,76312668 seconds
+        2014-02-17 10:00:20.494 - webbot - INFO  - web server stopped.
 
 5. Mocha returns 1 for a failing test :
 
@@ -235,11 +238,11 @@ module.exports = { // lib/actions/my-action.js
   build: function (webBot, step) {
     return function () { // This function will be called during the execution of the test
       var param1, param2;
-      webBot.log.info('#%s start', step.index);
+      console.info('#%s start', step.index);
       param1=util.getItemParam(step, 1);
       param2=util.getItemParam(step, 2);
       // do something with param1, param2, webBot.browser (ie zombiejs), ...
-      webBot.log.info('#%s end', step.index);
+      console.info('#%s end', step.index);
     };
   }
 };

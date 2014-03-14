@@ -1,7 +1,7 @@
 var http = require('http')
   , querystring = require('querystring')
-  , log = require('../lib/webbot').log
   , util = require('../lib/util')
+  , logger = require('hw-logger').logger
   , that, httpServer
   , initialEntities, entities;
 
@@ -18,7 +18,7 @@ that = {
     callback = util.safeCallback(callback);
     entities = JSON.parse(JSON.stringify(initialEntities));
     httpServer = http.createServer(function (req, res) {
-        log.trace('incoming request : %s', req.url);
+        logger.trace('incoming request : %s', req.url);
         if (req.url === '/hello.html' && req.method === 'GET') {
           webGetHello(req, res);
         } else if (req.url === '/form.html' && req.method === 'POST') {
@@ -61,7 +61,7 @@ that = {
       if (err) {
         return callback(err);
       }
-      log.info('web server started.');
+      logger.info('web server started.');
       callback();
     });
   },
@@ -71,7 +71,7 @@ that = {
       return callback(null, false);
     }
     httpServer.close(function () {
-      log.info('web server stopped.');
+      logger.info('web server stopped.');
       callback();
     });
   }

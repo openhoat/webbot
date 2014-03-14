@@ -33,12 +33,12 @@
     "zombie": "2.0.0-alpha25",
     "q": "1.0.0",
     "google-spreadsheet": "git://github.com/openhoat/node-google-spreadsheets.git",
-    "hw-util": "0.0.17",
+    "hw-util": "0.2.0",
+    "hw-logger": "~0.1.1",
     "chai": "1.8.1",
     "request": "2.34.0",
     "mocha": "1.14.0",
-    "commander": "2.1.0",
-    "npmlog": "0.0.6"
+    "commander": "2.1.0"
   },
   "devDependencies": {
     "grunt": "0.4.1",
