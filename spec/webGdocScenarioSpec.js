@@ -1,7 +1,8 @@
 var path = require('path')
   , Q = require('q')
   , WebBot = require('../lib/webbot')
-  , specUtil = require('./spec-util');
+  , specUtil = require('./spec-util')
+  , logger = require('hw-logger').logger;
 
 describe('Automate web visit', function () {
   var baseDir;
@@ -23,7 +24,7 @@ describe('Automate web visit', function () {
 
     function completed(err) {
       var elapsedTime = webBot.elapsedTimeMs();
-      webBot.log.info('WebBotjs test took %s seconds', elapsedTime / 1000);
+      logger.info('WebBotjs test took %s seconds', elapsedTime / 1000);
       done(err);
     }
   });
