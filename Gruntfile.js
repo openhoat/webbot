@@ -26,8 +26,7 @@ module.exports = function (grunt) {
         options: {
           reporter: 'spec'
         },
-        //src: ['spec/**/*Spec.js']
-        src: [ 'spec/webJsonScenarioSpec.js' ]
+        src: ['spec/**/*Spec.js']
       }
     }
   };
