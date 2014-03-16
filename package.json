@@ -1,6 +1,6 @@
 {
   "name": "webbotjs",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "WebBotjs helps you to test your web sites",
   "main": "lib/webbot",
   "author": {
@@ -27,7 +27,8 @@
     "webbot": "./bin/webbot"
   },
   "scripts": {
-    "test": "mocha spec/webJsonScenarioSpec.js"
+    "test": "mocha /spec/utilPublicGoogleSheetToJsonSpec.js spec/webJsonScenarioSpec.js spec/wsJsonScenarioSpec.js spec/webJsonDlScenarioSpec.js spec/webGdocScenarioSpec.js spec/wsJsonDlScenarioSpec.js",
+    "start": "./bin/webbot"
   },
   "dependencies": {
     "zombie": "2.0.0-alpha25",
