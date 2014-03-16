@@ -4,7 +4,7 @@ var chai = require('chai')
   , expect = chai.expect;
 
 describe('util googleSheetToJson', function () {
-  it('should return a json doc from google spreadsheet', function (done) {
+  it('should return a json doc from public google spreadsheet', function (done) {
     this.timeout(10000);
     Q().
       then(function () {
