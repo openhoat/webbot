@@ -21,6 +21,10 @@ Run a test scenario from a JSON file :
 
     # webbot -j ./webScenario1.json
 
+With a resource file populating variables like {{myVarName}} in the scenario :
+
+    # webbot -j ./webScenario1.json -m ./resource.json
+
 Run a test scenario from a downloaded JSON file :
 
     # webbot -d http://localhost:3000/webScenario1.json
@@ -199,6 +203,7 @@ Default provided actions :
 - click : click on a hyperlink in the current page, specified by a selector
 - fill : fill a form field with a value
 - press : press a button
+- attach (NEW!) : attach a file path to an input field for file uploading
 - wait : wait until the browser is ready, then go to next step
 - html : log the html content of the current page
 - preview : preview the current page in a real browser (end the current test scenario)
