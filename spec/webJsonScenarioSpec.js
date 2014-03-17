@@ -18,7 +18,7 @@ describe('Automate web visit', function () {
     var webBot, jsonWebScenario = require('./webScenario1.json');
     this.timeout(2000);
     webBot = new WebBot(baseDir);
-    webBot.runStepsFromJsonScenario(jsonWebScenario, completed);
+    webBot.runStepsFromJsonScenario({ jsonScenario: jsonWebScenario }, completed);
 
     function completed(err) {
       var elapsedTime = webBot.elapsedTime();

@@ -16,7 +16,7 @@ describe('Automate web service test', function () {
     var webBot, scenarioUri = 'http://localhost:3000/wsScenario1.json';
     this.timeout(2000);
     webBot = new WebBot(baseDir);
-    webBot.runStepsFromDlJsonScenario(scenarioUri, completed);
+    webBot.runStepsFromDlJsonScenario({ scenarioUri:scenarioUri }, completed);
 
     function completed(err) {
       var elapsedTime = webBot.elapsedTime();

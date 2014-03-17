@@ -18,8 +18,10 @@ describe('Automate web visit', function () {
     this.timeout(20000);
     webBot = new WebBot(baseDir);
     webBot.runStepsFromGdocScenario({
-      gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
-      sheetIndex: 0
+      gdocScenario: {
+        gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
+        sheetIndex: 0
+      }
     }, completed);
 
     function completed(err) {

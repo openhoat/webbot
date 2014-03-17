@@ -16,7 +16,7 @@ describe('Automate web service test', function () {
     var webBot, jsonWebScenario = require('./wsScenario1.json');
     this.timeout(2000);
     webBot = new WebBot(baseDir);
-    webBot.runStepsFromJsonScenario(jsonWebScenario, completed);
+    webBot.runStepsFromJsonScenario({ jsonScenario: jsonWebScenario }, completed);
 
     function completed(err) {
       var elapsedTime = webBot.elapsedTime();

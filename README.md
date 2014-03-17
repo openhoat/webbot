@@ -113,7 +113,7 @@ describe('Automate web visit', function () {
         param2: "expect(browser.text('h1')).to.equal('Hello')"
       }
     ];
-    webBot.runStepsFromJsonScenario(jsonWebScenario, function(err) {
+    webBot.runStepsFromJsonScenario({ jsonScenario: jsonWebScenario }, function(err) {
         ...
     });
   });
@@ -135,8 +135,10 @@ describe('Automate web visit', function () {
     this.timeout(20000);
     webBot = new WebBot(__dirname);
     webBot.runStepsFromGdocScenario({
-        gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
-        sheetIndex: 0
+        gdocScenario: {
+          gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
+          sheetIndex: 0
+        }
       }, function(err) {
         ...
       });
@@ -150,11 +152,13 @@ To specify a Google Account, simply add it to options :
 
 ```javascript
         webBot.runStepsFromGdocScenario({
-            gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
-            sheetIndex: 0,
-            googleAccount: {
-              login: 'johndoe',
-              password: 'thesecret'
+            gdocScenario: {
+              gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
+              sheetIndex: 0,
+              googleAccount: {
+                login: 'johndoe',
+                password: 'thesecret'
+              }
             }
           }, function(err) {
             ...
@@ -165,9 +169,11 @@ To specify a oAuth token (previously got from a usual 3rd party module for examp
 
 ```javascript
         webBot.runStepsFromGdocScenario({
-            gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
-            sheetIndex: 0,
-            accessToken: 'TJSRYJ67354UZSGHS67SH3467356ZEFH'
+            gdocScenario: {
+              gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
+              sheetIndex: 0,
+              accessToken: 'TJSRYJ67354UZSGHS67SH3467356ZEFH'
+            }
           }, function(err) {
             ...
           });
