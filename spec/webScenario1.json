@@ -46,5 +46,15 @@
     "action": "assertText",
     "param1": "body > h2",
     "param2": "this is the value"
+  },
+  {
+    "description": "Go back",
+    "action": "back"
+  },
+  {
+    "description": "Check title is Hey and h1 is Hello",
+    "action": "assert",
+    "param1": "expect(browser.text('title')).to.equal('Hey')",
+    "param2": "expect(browser.text('h1')).to.equal('Hello')"
   }
 ]
