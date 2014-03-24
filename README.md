@@ -197,13 +197,15 @@ Default provided actions :
 
 - init : initialize the headless browser with a web site base url
 - visit : browse an URI path of the web site
+- back : navigate to previous page in history
 - assert : assert something given with any parameters using mocha syntax
 - assertText : assert a selector text content is equal to an expected string
 - assertTimeLe : assert elapsed time since the beginning of the test does not exceed the specified duration in ms
 - click : click on a hyperlink in the current page, specified by a selector
 - fill : fill a form field with a value
-- check : check a checkbox
+- check : check a checkbox (params : selector, true|false)
 - choose : select a radio box option
+- select : select an option with value (params : selector, value, true|false)
 - press : press a button
 - attach (NEW!) : attach a file path to an input field for file uploading
 - wait : wait until the browser is ready, then go to next step
