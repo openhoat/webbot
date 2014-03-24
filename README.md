@@ -202,6 +202,8 @@ Default provided actions :
 - assertTimeLe : assert elapsed time since the beginning of the test does not exceed the specified duration in ms
 - click : click on a hyperlink in the current page, specified by a selector
 - fill : fill a form field with a value
+- check : check a checkbox
+- choose : select a radio box option
 - press : press a button
 - attach (NEW!) : attach a file path to an input field for file uploading
 - wait : wait until the browser is ready, then go to next step
