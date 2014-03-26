@@ -26,19 +26,17 @@ describe('util googleSheetToJson', function () {
         expect(result).to.be.instanceof(Array);
         expect(result).to.eql([
           {
-            index: '1',
+            index: 1,
             action: 'init',
-            param1: 'http://en.wikipedia.org',
-            param2: ''
+            param1: 'http://en.wikipedia.org'
           },
           {
-            index: '2',
+            index: 2,
             action: 'visit',
-            param1: '/wiki/Hello_world_program',
-            param2: ''
+            param1: '/wiki/Hello_world_program'
           },
           {
-            index: '1',
+            index: 3,
             action: 'assertText',
             param1: '#firstHeading > span',
             param2: 'Hello world program'
