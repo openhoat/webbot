@@ -211,6 +211,16 @@ Default provided actions :
 - wait : wait until the browser is ready, then go to next step
 - html : log the html content of the current page
 - preview : preview the current page in a real browser (end the current test scenario)
+- checkActivationEmail (NEW!) : poll an imap mailbox to find matching activation email, then browse the activation link in body
+    - param1 : imap server hostname
+    - param2 : imap server port
+    - param3 : imap server tls enabled ('true|false')
+    - param4 : imap user
+    - param5 : imap password
+    - param6 : from address to match
+    - param7 : email subject to match
+    - param8 : regexp to match activation link in email body
+    - param9 : poll frequency (default 10000ms)
 
 New web service actions since v0.0.8 : for more informatons look at [wsJsonScenarioSpec.js](https://github.com/openhoat/webbotjs/tree/master/spec/wsJsonScenarioSpec.js)
 
