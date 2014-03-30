@@ -82,6 +82,7 @@ module.exports = that;
 function webGetHello(req, res) {
   res.write('<html><head><title>Hey</title></head><body>' +
     '<h1>Hello</h1><h2>this is a test</h2>' +
+    '<ul><li>1</li><li>2</li><li>3</li></ul>' +
     '<form action="/form.html" method="post">' +
     '<input type="text" name="field">' +
     '<input type="submit" value="ok">' +
@@ -101,6 +102,7 @@ function webPostForm(req, res) {
     res.write('<html><head><title>Form submitted</title></head><body>' +
       '<h1>Done</h1>' +
       util.format('<h2>%s</h2>', params.field) +
+      '<ul><li>1</li><li>2</li><li>3</li></ul>' +
       '</body></html>');
     res.end();
   });
