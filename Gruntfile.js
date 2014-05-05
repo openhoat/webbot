@@ -53,5 +53,5 @@ module.exports = function (grunt) {
   grunt.registerTask('verify', ['mkdir', 'jshint']);
   grunt.registerTask('test', ['mkdir', 'mochaTest']);
   grunt.registerTask('cover', ['mkdir', 'exec:coverage']);
-  grunt.registerTask('default', ['verify', 'test']);
+  grunt.registerTask('default', ['verify', 'test', 'cover']);
 };
