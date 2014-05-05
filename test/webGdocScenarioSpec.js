@@ -2,7 +2,7 @@ var path = require('path')
   , Q = require('niceq')
   , WebBot = require('../lib/webbot')
   , specUtil = require('./spec-util')
-  , logger = require('hw-logger').logger;
+  , logger = require('nice-logger').logger;
 
 describe('Automate web visit', function () {
   var baseDir;

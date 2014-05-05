@@ -1,7 +1,7 @@
 var http = require('http')
   , querystring = require('querystring')
   , util = require('../lib/util')
-  , logger = require('hw-logger').logger
+  , logger = require('nice-logger').logger
   , that, httpServer
   , initialEntities, entities;
 
