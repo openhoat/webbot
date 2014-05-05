@@ -7,19 +7,15 @@ describe('util googleSheetToJson', function () {
   it('should return a json doc from private google spreadsheet', function (done) {
     this.timeout(10000);
     Q().
-      then(function () {
-        var deferred = Q.defer();
+      niceThen(function (next) {
         util.googleSheetToJson({
-            gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
-            sheetIndex: 1,
-            googleAccount: {
-              login: 'openhoat',
-              password: process.env['GOOGLE_ACCOUNT_PASSWORD']
-            }
-          },
-          deferred.makeNodeResolver()
-        );
-        return deferred.promise;
+          gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
+          sheetIndex: 1,
+          googleAccount: {
+            login: 'openhoat',
+            password: process.env['GOOGLE_ACCOUNT_PASSWORD']
+          }
+        }, next);
       }).
       then(function (result) {
         expect(result).to.be.ok;
@@ -43,7 +39,6 @@ describe('util googleSheetToJson', function () {
           }
         ]);
       }).
-      then(done).
-      catch(done);
+      niceDone(done);
   });
 });

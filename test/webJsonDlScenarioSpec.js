@@ -14,7 +14,7 @@ describe('Automate web visit', function () {
   });
   it('should play a downloaded json web test scenario', function (done) {
     var webBot, scenarioUri = 'http://localhost:3000/webScenario1.json';
-    this.timeout(5000);
+    this.timeout(10000);
     webBot = new WebBot(baseDir);
     webBot.runStepsFromDlJsonScenario({ scenarioUri: scenarioUri }, completed);
 

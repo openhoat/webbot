@@ -7,15 +7,11 @@ describe('util googleSheetToJson', function () {
   it('should return a json doc from public google spreadsheet', function (done) {
     this.timeout(10000);
     Q().
-      then(function () {
-        var deferred = Q.defer();
+      niceThen(function (next) {
         util.googleSheetToJson({
-            gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
-            sheetIndex: 0
-          },
-          deferred.makeNodeResolver()
-        );
-        return deferred.promise;
+          gdocKey: '0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc',
+          sheetIndex: 0
+        }, next);
       }).
       then(function (result) {
         expect(result).to.be.ok;
@@ -77,13 +73,12 @@ describe('util googleSheetToJson', function () {
             param2: 'this is the value'
           },
           { index: 10,
-            description: 'Ensure the test has been done in 500ms max',
+            description: 'Ensure the test has been done in 1s max',
             action: 'assertTimeLe',
-            param1: '500'
+            param1: '1000'
           }
         ]);
       }).
-      then(done).
-      catch(done);
+      niceDone(done);
   });
 });
