@@ -1,5 +1,5 @@
 var chai = require('chai')
-  , Q = require('q')
+  , Q = require('niceq')
   , util = require('../lib/util')
   , expect = chai.expect;
 

@@ -1,5 +1,5 @@
 var path = require('path')
-  , Q = require('q')
+  , Q = require('niceq')
   , WebBot = require('../lib/webbot')
   , specUtil = require('./spec-util')
   , logger = require('hw-logger').logger;

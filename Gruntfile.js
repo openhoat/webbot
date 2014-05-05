@@ -1,5 +1,8 @@
+'use strict';
+
 module.exports = function (grunt) {
-  var gruntConfig = {
+  var gruntConfig;
+  gruntConfig = {
     pkg: grunt.file.readJSON('package.json'),
     clean: {
       default: ['dist']
@@ -13,20 +16,26 @@ module.exports = function (grunt) {
     },
     jshint: {
       options: {
+        reporter: require('jshint-stylish'),
+        force: true,
         jshintrc: 'jshint.json',
-        force: true
-      },
-      all: [
-        'lib/**/*.js',
-        'app.js'
-      ]
+        src: [
+          'lib/**/*.js',
+          'test/**/*.js'
+        ]
+      }
     },
     mochaTest: {
       test: {
         options: {
           reporter: 'spec'
         },
-        src: ['spec/**/*Spec.js']
+        src: ['test/**/*Spec.js']
+      }
+    },
+    exec: {
+      coverage: {
+        command: './node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000'
       }
     }
   };
@@ -37,12 +46,11 @@ module.exports = function (grunt) {
     gruntConfig.mochaTest.test.options.quiet = true;
     process.env.XUNIT_FILE = 'dist/reports/xunit.xml';
   }
+  require('load-grunt-tasks')(grunt);
+  require('time-grunt')(grunt);
   grunt.initConfig(gruntConfig);
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-mkdir');
-  grunt.loadNpmTasks('grunt-mocha-test');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.registerTask('verify', ['mkdir', 'jshint']);
   grunt.registerTask('test', ['mkdir', 'mochaTest']);
+  grunt.registerTask('cover', ['mkdir', 'exec:coverage']);
   grunt.registerTask('default', ['verify', 'test']);
 };
