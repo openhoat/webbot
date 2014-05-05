@@ -1,3 +1,5 @@
+'use strict';
+
 var chai = require('chai')
   , Q = require('niceq')
   , util = require('../lib/util')
@@ -60,14 +62,14 @@ describe('util googleSheetToJson', function () {
           },
           {
             index: 8,
-            description: "Check h1 is 'Done'",
+            description: 'Check h1 is \'Done\'',
             action: 'assertText',
             param1: 'body > h1',
             param2: 'Done'
           },
           {
             index: 9,
-            description: "Check h2 is 'this is the value'",
+            description: 'Check h2 is \'this is the value\'',
             action: 'assertText',
             param1: 'body > h2',
             param2: 'this is the value'

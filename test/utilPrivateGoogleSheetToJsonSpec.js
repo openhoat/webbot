@@ -1,3 +1,5 @@
+'use strict';
+
 var chai = require('chai')
   , Q = require('niceq')
   , util = require('../lib/util')
@@ -13,7 +15,7 @@ describe('util googleSheetToJson', function () {
           sheetIndex: 1,
           googleAccount: {
             login: 'openhoat',
-            password: process.env['GOOGLE_ACCOUNT_PASSWORD']
+            password: process.env.GOOGLE_ACCOUNT_PASSWORD
           }
         }, next);
       }).

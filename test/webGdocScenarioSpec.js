@@ -1,5 +1,6 @@
+'use strict';
+
 var path = require('path')
-  , Q = require('niceq')
   , WebBot = require('../lib/webbot')
   , specUtil = require('./spec-util')
   , logger = require('nice-logger').logger;
@@ -15,6 +16,13 @@ describe('Automate web visit', function () {
   });
   it('should play a google doc web test scenario', function (done) {
     var webBot;
+
+    function completed(err) {
+      var elapsedTime = webBot.elapsedTimeMs();
+      logger.info('WebBotjs test took %s seconds', elapsedTime / 1000);
+      done(err);
+    }
+
     this.timeout(20000);
     webBot = new WebBot(baseDir);
     webBot.runStepsFromGdocScenario({
@@ -23,11 +31,5 @@ describe('Automate web visit', function () {
         sheetIndex: 0
       }
     }, completed);
-
-    function completed(err) {
-      var elapsedTime = webBot.elapsedTimeMs();
-      logger.info('WebBotjs test took %s seconds', elapsedTime / 1000);
-      done(err);
-    }
   });
 });

@@ -1,83 +1,11 @@
+'use strict';
+
 var http = require('http')
   , querystring = require('querystring')
   , util = require('../lib/util')
   , logger = require('nice-logger').logger
   , that, httpServer
   , initialEntities, entities;
-
-initialEntities = [
-  {
-    id: '123',
-    firstName: 'John',
-    lastName: 'Doe'
-  }
-];
-
-that = {
-  startWebServer: function (callback) {
-    callback = util.safeCallback(callback);
-    entities = JSON.parse(JSON.stringify(initialEntities));
-    httpServer = http.createServer(function (req, res) {
-        logger.trace('incoming request : %s', req.url);
-        if (req.url === '/hello.html' && req.method === 'GET') {
-          webGetHello(req, res);
-        } else if (req.url === '/form.html' && req.method === 'POST') {
-          webPostForm(req, res);
-        } else if (req.url.indexOf('/ws/contact') === 0) {
-          if (req.method === 'GET') {
-            wsGetContact(req, res);
-          } else if (req.method === 'POST') {
-            wsPostContact(req, res);
-          } else if (req.method === 'PUT') {
-            wsPutContact(req, res);
-          } else if (req.method === 'DELETE') {
-            wsDelContact(req, res);
-          } else {
-            res.writeHead(400);
-            res.end();
-          }
-        } else if (req.url === '/webScenario1.json' && req.method === 'GET') {
-          res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.write(JSON.stringify(require('./webScenario1.json')));
-          res.end();
-        } else if (req.url === '/wsScenario1.json' && req.method === 'GET') {
-          res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.write(JSON.stringify(require('./wsScenario1.json')));
-          res.end();
-        } else {
-          res.writeHead(404);
-          res.end();
-        }
-      }
-    );
-    httpServer.on('error', function (err) {
-      if (err.code === 'EADDRINUSE') {
-        httpServer = null;
-        return callback(null, false);
-      }
-      callback(err);
-    });
-    httpServer.listen(3000, function (err) {
-      if (err) {
-        return callback(err);
-      }
-      logger.info('web server started.');
-      callback();
-    });
-  },
-  stopWebServer: function (callback) {
-    callback = util.safeCallback(callback);
-    if (!httpServer) {
-      return callback(null, false);
-    }
-    httpServer.close(function () {
-      logger.info('web server stopped.');
-      callback();
-    });
-  }
-};
-
-module.exports = that;
 
 function webGetHello(req, res) {
   res.write('<html><head><title>Hey</title></head><body>' +
@@ -191,3 +119,77 @@ function wsDelContact(req, res) {
     res.end();
   }
 }
+
+initialEntities = [
+  {
+    id: '123',
+    firstName: 'John',
+    lastName: 'Doe'
+  }
+];
+
+that = {
+  startWebServer: function (callback) {
+    callback = util.safeCallback(callback);
+    entities = JSON.parse(JSON.stringify(initialEntities));
+    httpServer = http.createServer(function (req, res) {
+        logger.trace('incoming request : %s', req.url);
+        if (req.url === '/hello.html' && req.method === 'GET') {
+          webGetHello(req, res);
+        } else if (req.url === '/form.html' && req.method === 'POST') {
+          webPostForm(req, res);
+        } else if (req.url.indexOf('/ws/contact') === 0) {
+          if (req.method === 'GET') {
+            wsGetContact(req, res);
+          } else if (req.method === 'POST') {
+            wsPostContact(req, res);
+          } else if (req.method === 'PUT') {
+            wsPutContact(req, res);
+          } else if (req.method === 'DELETE') {
+            wsDelContact(req, res);
+          } else {
+            res.writeHead(400);
+            res.end();
+          }
+        } else if (req.url === '/webScenario1.json' && req.method === 'GET') {
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.write(JSON.stringify(require('./webScenario1.json')));
+          res.end();
+        } else if (req.url === '/wsScenario1.json' && req.method === 'GET') {
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.write(JSON.stringify(require('./wsScenario1.json')));
+          res.end();
+        } else {
+          res.writeHead(404);
+          res.end();
+        }
+      }
+    );
+    httpServer.on('error', function (err) {
+      if (err.code === 'EADDRINUSE') {
+        httpServer = null;
+        return callback(null, false);
+      }
+      callback(err);
+    });
+    httpServer.listen(3000, function (err) {
+      if (err) {
+        return callback(err);
+      }
+      logger.info('web server started.');
+      callback();
+    });
+  },
+  stopWebServer: function (callback) {
+    callback = util.safeCallback(callback);
+    if (!httpServer) {
+      return callback(null, false);
+    }
+    httpServer.close(function () {
+      logger.info('web server stopped.');
+      callback();
+    });
+  }
+};
+
+module.exports = that;
