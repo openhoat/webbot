@@ -19,11 +19,11 @@ module.exports = function (grunt) {
         reporter: require('jshint-stylish'),
         force: true,
         jshintrc: 'jshint.json',
-        src: [
-          'lib/**/*.js',
-          'test/**/*.js'
-        ]
-      }
+      },
+      src: [
+        'lib/**/*.js',
+        'test/**/*.js'
+      ]
     },
     mochaTest: {
       test: {
@@ -35,7 +35,7 @@ module.exports = function (grunt) {
     },
     exec: {
       coverage: {
-        command: './node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000'
+        command: './node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000 test/webJsonScenarioSpec.js test/wsJsonScenarioSpec.js test/webJsonDlScenarioSpec.js test/webGdocScenarioSpec.js test/wsJsonDlScenarioSpec.js'
       }
     }
   };
@@ -44,6 +44,7 @@ module.exports = function (grunt) {
     gruntConfig.jshint.options.reporterOutput = 'dist/reports/jshint_checkstyle.xml';
     gruntConfig.mochaTest.test.options.reporter = 'xunit-file';
     gruntConfig.mochaTest.test.options.quiet = false;
+    require('./config/default.json').log.colorEnabled = false;
     process.env.XUNIT_FILE = 'dist/reports/xunit.xml';
   }
   require('load-grunt-tasks')(grunt);
