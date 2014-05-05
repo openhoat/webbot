@@ -44,7 +44,7 @@ module.exports = function (grunt) {
     gruntConfig.jshint.options.reporter = 'checkstyle';
     gruntConfig.jshint.options.reporterOutput = 'dist/reports/jshint_checkstyle.xml';
     gruntConfig.mochaTest.test.options.reporter = 'xunit-file';
-    gruntConfig.mochaTest.test.options.quiet = true;
+    gruntConfig.mochaTest.test.options.quiet = false;
     process.env.XUNIT_FILE = 'dist/reports/xunit.xml';
   }
   require('load-grunt-tasks')(grunt);
