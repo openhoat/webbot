@@ -30,7 +30,8 @@ module.exports = function (grunt) {
         options: {
           reporter: 'spec'
         },
-        src: ['test/**/*Spec.js']
+        src: ['test/utilPublicGoogleSheetToJsonSpec.js', 'test/webJsonScenarioSpec.js', 'test/wsJsonScenarioSpec.js',
+          'test/webJsonDlScenarioSpec.js', 'test/webGdocScenarioSpec.js', 'test/wsJsonDlScenarioSpec.js']
       }
     },
     exec: {
