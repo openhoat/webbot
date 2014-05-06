@@ -30,12 +30,12 @@ module.exports = function (grunt) {
         options: {
           reporter: 'spec'
         },
-        src: ['test/webJsonScenarioSpec.js', 'test/wsJsonScenarioSpec.js', 'test/webJsonDlScenarioSpec.js', 'test/webGdocScenarioSpec.js', 'test/wsJsonDlScenarioSpec.js']
+        src: ['test/webJsonScenarioSpec.js', 'test/wsJsonScenarioSpec.js', 'test/webJsonDlScenarioSpec.js', 'test/webGdocScenarioSpec.js', 'test/wsJsonDlScenarioSpec.js', 'test/soapSpec.js']
       }
     },
     exec: {
       coverage: {
-        command: './node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000 test/webJsonScenarioSpec.js test/wsJsonScenarioSpec.js test/webJsonDlScenarioSpec.js test/webGdocScenarioSpec.js test/wsJsonDlScenarioSpec.js'
+        command: './node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000 test/webJsonScenarioSpec.js test/wsJsonScenarioSpec.js test/webJsonDlScenarioSpec.js test/webGdocScenarioSpec.js test/wsJsonDlScenarioSpec.js test/soapSpec.js'
       }
     }
   };

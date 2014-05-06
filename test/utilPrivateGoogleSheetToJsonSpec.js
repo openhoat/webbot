@@ -7,7 +7,7 @@ var chai = require('chai')
 
 describe('util googleSheetToJson', function () {
   it('should return a json doc from private google spreadsheet', function (done) {
-    this.timeout(10000);
+    this.timeout(20000);
     Q().
       niceThen(function (next) {
         util.googleSheetToJson({

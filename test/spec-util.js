@@ -4,8 +4,7 @@ var http = require('http')
   , querystring = require('querystring')
   , util = require('../lib/util')
   , logger = require('nice-logger').logger
-  , that, httpServer
-  , initialEntities, entities;
+  , that, initialEntities, entities;
 
 function webGetHello(req, res) {
   res.write('<html><head><title>Hey</title></head><body>' +
@@ -129,10 +128,11 @@ initialEntities = [
 ];
 
 that = {
+  httpServer: null,
   startWebServer: function (callback) {
     callback = util.safeCallback(callback);
     entities = JSON.parse(JSON.stringify(initialEntities));
-    httpServer = http.createServer(function (req, res) {
+    that.httpServer = http.createServer(function (req, res) {
         logger.trace('incoming request : %s', req.url);
         if (req.url === '/hello.html' && req.method === 'GET') {
           webGetHello(req, res);
@@ -165,14 +165,14 @@ that = {
         }
       }
     );
-    httpServer.on('error', function (err) {
+    that.httpServer.on('error', function (err) {
       if (err.code === 'EADDRINUSE') {
-        httpServer = null;
+        that.httpServer = null;
         return callback(null, false);
       }
       callback(err);
     });
-    httpServer.listen(3000, function (err) {
+    that.httpServer.listen(3000, function (err) {
       if (err) {
         return callback(err);
       }
@@ -182,10 +182,10 @@ that = {
   },
   stopWebServer: function (callback) {
     callback = util.safeCallback(callback);
-    if (!httpServer) {
+    if (!that.httpServer) {
       return callback(null, false);
     }
-    httpServer.close(function () {
+    that.httpServer.close(function () {
       logger.info('web server stopped.');
       callback();
     });
