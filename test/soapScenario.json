@@ -3,9 +3,7 @@
     "description": "Create a soap client",
     "action": "soapClient",
     "param1": "http://localhost:3000/stockquote?wsdl",
-    "param2": "soapClient",
-    "param30": "client.describe().StockQuoteService.StockQuotePort.GetLastTradePrice",
-    "param31": "{ input: { tickerSymbol: 'string' }, output: { price: 'float' } }"
+    "param2": "soapClient"
   },
   {
     "description": "Assert soap client description",

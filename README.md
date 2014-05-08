@@ -19,15 +19,15 @@ To use it in your own project and write your own web tests :
 
 Run a test scenario from a JSON file :
 
-    # webbot -j ./webScenario1.json
+    # webbot -j ./webScenario.json
 
 With a resource file populating variables like {{myVarName}} in the scenario :
 
-    # webbot -j ./webScenario1.json -m ./resource.json
+    # webbot -j ./webScenario.json -m ./resource.json
 
 Run a test scenario from a downloaded JSON file :
 
-    # webbot -d http://localhost:3000/webScenario1.json
+    # webbot -d http://localhost:3000/webScenario.json
 
 Run a test scenario from a Google Doc sheet :
 

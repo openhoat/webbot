@@ -5,7 +5,7 @@ module.exports = function (grunt) {
   gruntConfig = {
     pkg: grunt.file.readJSON('package.json'),
     clean: {
-      default: ['dist']
+      default: ['dist', 'tmp']
     },
     mkdir: {
       all: {

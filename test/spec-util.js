@@ -8,7 +8,9 @@ var http = require('http')
 
 function webGetHello(req, res) {
   res.write('<html><head><title>Hey</title></head><body>' +
-    '<h1>Hello</h1><h2>this is a test</h2>' +
+    '<h1>Hello</h1>' +
+    '<h2>this is a test</h2>' +
+    '<h3>' + new Date().toISOString().substring(0, 7) + '</h3>' +
     '<ul><li>1</li><li>2</li><li>3</li></ul>' +
     '<form action="/form.html" method="post">' +
     '<input type="text" name="field">' +
@@ -151,13 +153,13 @@ that = {
             res.writeHead(400);
             res.end();
           }
-        } else if (req.url === '/webScenario1.json' && req.method === 'GET') {
+        } else if (req.url === '/webScenario.json' && req.method === 'GET') {
           res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.write(JSON.stringify(require('./webScenario1.json')));
+          res.write(JSON.stringify(require('./webScenario.json')));
           res.end();
-        } else if (req.url === '/wsScenario1.json' && req.method === 'GET') {
+        } else if (req.url === '/wsScenario.json' && req.method === 'GET') {
           res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.write(JSON.stringify(require('./wsScenario1.json')));
+          res.write(JSON.stringify(require('./wsScenario.json')));
           res.end();
         } else {
           res.writeHead(404);

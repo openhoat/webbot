@@ -15,7 +15,7 @@ describe('Automate web service test', function () {
     specUtil.stopWebServer(done);
   });
   it('should play a json web test scenario', function (done) {
-    var webBot, jsonWebScenario = require('./wsScenario1.json');
+    var webBot, jsonWebScenario = require('./wsScenario.json');
 
     function completed(err) {
       var elapsedTime = webBot.elapsedTime();

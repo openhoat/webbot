@@ -11,14 +11,16 @@ baseDir = path.join(__dirname, '..');
 describe('Automate web visit', function () {
   var baseDir;
   baseDir = path.join(__dirname, '..');
-  beforeEach(function (done) {
+  before(function (done) {
     specUtil.startWebServer(done);
   });
-  afterEach(function (done) {
+  after(function (done) {
     specUtil.stopWebServer(done);
   });
   it('should play a json web test scenario', function (done) {
-    var webBot, jsonWebScenario = require('./webScenario1.json');
+    var webBot
+      , jsonWebScenario = require('./webScenario.json')
+      , resources = require('./resources.json');
 
     function completed(err) {
       var elapsedTime = webBot.elapsedTime();
@@ -28,6 +30,6 @@ describe('Automate web visit', function () {
 
     this.timeout(10000);
     webBot = new WebBot(baseDir);
-    webBot.runStepsFromJsonScenario({ jsonScenario: jsonWebScenario }, completed);
+    webBot.runStepsFromJsonScenario({ jsonScenario: jsonWebScenario, resources: resources }, completed);
   });
 });

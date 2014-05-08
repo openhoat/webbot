@@ -15,7 +15,8 @@ describe('Automate web service test', function () {
     specUtil.stopWebServer(done);
   });
   it('should play a downloaded json web test scenario', function (done) {
-    var webBot, scenarioUri = 'http://localhost:3000/wsScenario1.json';
+    var webBot
+      , scenarioUri = 'http://localhost:3000/wsScenario.json';
 
     function completed(err) {
       var elapsedTime = webBot.elapsedTime();

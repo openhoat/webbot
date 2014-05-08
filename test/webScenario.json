@@ -2,7 +2,7 @@
   {
     "description": "Init browser",
     "action": "init",
-    "param1": "http://localhost:3000"
+    "param1": "http://{{ hostname }}:3000"
   },
   {
     "description": "Visit hello",
@@ -62,5 +62,11 @@
     "action": "assert",
     "param1": "expect(browser.text('title')).to.equal('Hey')",
     "param2": "expect(browser.text('h1')).to.equal('Hello')"
+  },
+  {
+    "description": "Check title is Hey and h1 is Hello",
+    "action": "assertText",
+    "param1": "body > h3",
+    "param2": "{{ currentMonth }}"
   }
 ]
