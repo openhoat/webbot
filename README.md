@@ -42,7 +42,7 @@ Log messages are written to stderr, while test report is written to stdout.
 2. Specify the test scenario in JSON or a Google Doc
 3. Run it :
 
-        # mocha spec/myWebTest
+        # mocha test/myWebTest
 
 4. Mocha returns 0 for a success test, and outputs info logs :
 
@@ -100,7 +100,7 @@ module.exports = { // config/default.js
 Suppose you have a simple http server providing a hello page, the test could be :
 
 ```javascript
-var WebBot = require('webbotjs') // spec/myJsonSpec.js
+var WebBot = require('webbotjs') // test/myJsonSpec.js
   , webBot;
 
 describe('Automate web visit', function () {
@@ -131,7 +131,7 @@ WebBotjs will execute all steps in the JSON array to initialize the browser, vis
 Now let's see the same test with a scenario written in a [simple Google Doc](https://docs.google.com/spreadsheet/pub?key=0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc&output=html) :
 
 ```javascript
-var WebBot = require('webbotjs') // spec/myGdocSpec.js
+var WebBot = require('webbotjs') // test/myGdocSpec.js
   , webBot;
 
 describe('Automate web visit', function () {
@@ -183,7 +183,7 @@ To specify a oAuth token (previously got from a usual 3rd party module for examp
           });
 ```
 
-Test samples are provided in /spec : [webJsonScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/test/webJsonScenarioSpec.js) [webGdocScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/test/webGdocScenarioSpec.js)
+Test samples are provided in /test : [webJsonScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/test/webJsonScenarioSpec.js) [webGdocScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/test/webGdocScenarioSpec.js)
 
 ## Actions
 
