@@ -183,7 +183,7 @@ To specify a oAuth token (previously got from a usual 3rd party module for examp
           });
 ```
 
-Test samples are provided in /spec : [webJsonScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/spec/webJsonScenarioSpec.js) [webGdocScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/spec/webGdocScenarioSpec.js)
+Test samples are provided in /spec : [webJsonScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/test/webJsonScenarioSpec.js) [webGdocScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/test/webGdocScenarioSpec.js)
 
 ## Actions
 
@@ -207,11 +207,11 @@ Default provided actions :
 - choose : select a radio box option
 - select : select an option with value (params : selector, value, true|false)
 - press : press a button
-- attach (NEW!) : attach a file path to an input field for file uploading
+- attach : attach a file path to an input field for file uploading
 - wait : wait until the browser is ready, then go to next step
 - html : log the html content of the current page
 - preview : preview the current page in a real browser (end the current test scenario)
-- checkActivationEmail (NEW!) : poll an imap mailbox to find matching activation email, then browse the activation link in body
+- checkActivationEmail : poll an imap mailbox to find matching activation email, then browse the activation link in body
     - param1 : imap server hostname
     - param2 : imap server port
     - param3 : imap server tls enabled ('true|false')
@@ -222,12 +222,29 @@ Default provided actions :
     - param8 : regexp to match activation link in email body
     - param9 : poll frequency (default 10000ms)
 
-New web service actions since v0.0.8 : for more informatons look at [wsJsonScenarioSpec.js](https://github.com/openhoat/webbotjs/tree/master/spec/wsJsonScenarioSpec.js)
+New web service actions since v0.0.8 : for more informatons look at [wsJsonScenarioSpec.js](https://github.com/openhoat/webbotjs/tree/master/test/wsJsonScenarioSpec.js)
 
 - wsGet : send a GET request to a web service (params : url, expected http status code, optionnal expected content type, optionnal expected content)
 - wsPost : send a POST request to a web service (params : url, body data, expected http status code, optionnal expected content type, optionnal expected content)
 - wsPut : send a PUT request to a web service (params : url, body data, expected http status code, optionnal expected content type, optionnal expected content)
 - wsDelete : send a DELETE request to a web service (params : url, expected http status code, optionnal expected content type, optionnal expected content)
+
+New soap actions since v0.3.7 : for more informatons look at [soapSpec.js](https://github.com/openhoat/webbotjs/tree/master/test/soapSpec.js)
+
+- soapClient (NEW!) : create a soap client
+    - param1 : wsdl url
+    - param2 : context name (default : 'soapClient') to store the soap client
+    - param3 : optional acl username
+    - param4 : optional acl password
+- soapClientAssertDesc : assert the soap description
+    - param1 : context name (default : 'soapClient') of the soap client to retreive
+    - param2 : description property name to check
+    - param3 : description value to expect
+- soapClientAssertMethod : execute a soap method and assert result
+    - param1 : context name (default : 'soapClient') of the soap client to retreive
+    - param2 : name of the method (RPC) to execute
+    - param3 : parameters of the method call
+    - param4 : result expectation (js code)
 
 If it does not match your needs feel free to extend and contribute
 

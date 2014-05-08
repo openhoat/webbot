@@ -3,19 +3,19 @@
     "description": "Create a soap client",
     "action": "soapClient",
     "param1": "http://localhost:3000/stockquote?wsdl",
-    "param2": "soapClient"
+    "param2": "mySoapClient"
   },
   {
     "description": "Assert soap client description",
     "action": "soapClientAssertDesc",
-    "param1": "soapClient",
+    "param1": "mySoapClient",
     "param2": "StockQuoteService.StockQuotePort.GetLastTradePrice",
     "param3": "{ \"input\": { \"tickerSymbol\": \"string\" }, \"output\": { \"price\": \"float\" } }"
   },
   {
     "description": "Assert soap client method",
     "action": "soapClientAssertMethod",
-    "param1": "soapClient",
+    "param1": "mySoapClient",
     "param2": "GetLastTradePrice",
     "param3": "{ \"tickerSymbol\": \"AAPL\" }",
     "param4": "expect(parseFloat(args.result.price)).to.equal(19.56)"

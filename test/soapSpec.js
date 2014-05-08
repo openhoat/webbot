@@ -38,7 +38,7 @@ describe('Automate web visit', function () {
   after(function (done) {
     specUtil.stopWebServer(done);
   });
-  it('should play a json soap test scenario', function (done) {
+  it.only('should play a json soap test scenario', function (done) {
     var webBot, scenario = require('./soapScenario.json');
 
     function completed(err) {
