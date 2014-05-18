@@ -2,11 +2,13 @@
   {
     "description": "Create a soap client",
     "action": "soapClient",
-    "param1": "http://localhost:3000/stockquote?wsdl",
+    "param1": "https://localhost:3001/stockquote?wsdl",
     "param2": "mySoapClient",
-    "param3": "Basic",
+    "param3": "custom",
     "param4": "john",
-    "param5": "doe"
+    "param5": "doe",
+    "param6": "./test/cert.key",
+    "param7": "./test/cert.crt"
   },
   {
     "description": "Assert soap client description",

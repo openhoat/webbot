@@ -2,19 +2,20 @@
 
 var path = require('path')
   , soap = require('soap')
+  , util = require('util')
   , fs = require('fs')
   , WebBot = require('../lib/webbot')
-  , specUtil = require('./spec-util')
   , logger = require('nice-logger').logger
   , baseDir;
 
 baseDir = path.join(__dirname, '..');
 
-describe('WebBot soap', function () {
-  var baseDir;
+describe('WebBot soap security', function () {
+  var baseDir, httpsServer;
   baseDir = path.join(__dirname, '..');
   before(function (done) {
-    var myService, wsdl;
+    var https = require('https')
+      , server, myService, wsdl;
     myService = {
       StockQuoteService: {
         StockQuotePort: {
@@ -28,20 +29,27 @@ describe('WebBot soap', function () {
         }
       }
     };
-    wsdl = fs.readFileSync(path.join(__dirname, 'stockquote.wsdl'), 'utf8');
-    specUtil.startWebServer(function () {
-      soap.listen(specUtil.httpServer, '/stockquote', myService, wsdl)/*.authenticate = function (security) {
-        logger.info('security :', security);
-        return true;
-      }*/;
-      done();
+    wsdl = fs.readFileSync(path.join(__dirname, 'stockquote-sec.wsdl'), 'utf8');
+    httpsServer = https.createServer({
+      key: fs.readFileSync(path.join(__dirname, 'cert.key')),
+      cert: fs.readFileSync(path.join(__dirname, 'cert.crt'))
+    }, function (req, res) {
+      res.end(util.format('404: Not Found : %s', req.url));
     });
+    httpsServer.listen(3001);
+    server = soap.listen(httpsServer, '/stockquote', myService, wsdl);
+    server.authenticate = function (/*security*/) {
+      console.log('authenticate :', arguments);
+      console.log('this :', this);
+      return true;
+    };
+    done();
   });
   after(function (done) {
-    specUtil.stopWebServer(done);
+    httpsServer.close(done);
   });
-  it('should play a json soap test scenario', function (done) {
-    var webBot, scenario = require('./soapScenario.json');
+  it('should play a security soap test scenario', function (done) {
+    var webBot, scenario = require('./soapScenarioSec.json');
 
     function completed(err) {
       var elapsedTime = webBot.elapsedTime();

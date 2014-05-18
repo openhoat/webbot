@@ -8,7 +8,7 @@ var path = require('path')
 
 baseDir = path.join(__dirname, '..');
 
-describe('Automate web visit', function () {
+describe('WebBot json scenario', function () {
   var baseDir;
   baseDir = path.join(__dirname, '..');
   before(function (done) {

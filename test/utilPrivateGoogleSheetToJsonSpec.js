@@ -5,7 +5,7 @@ var chai = require('chai')
   , util = require('../lib/util')
   , expect = chai.expect;
 
-describe('util googleSheetToJson', function () {
+describe('WebBot util private googleSheetToJson', function () {
   it('should return a json doc from private google spreadsheet', function (done) {
     this.timeout(20000);
     Q().

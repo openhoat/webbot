@@ -5,7 +5,7 @@ var path = require('path')
   , specUtil = require('./spec-util')
   , logger = require('nice-logger').logger;
 
-describe('Automate web visit', function () {
+describe('WebBot wide json scenario', function () {
   var baseDir;
   baseDir = path.join(__dirname, '..');
   before(function (done) {
