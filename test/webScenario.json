@@ -12,7 +12,7 @@
   {
     "description": "Trace html",
     "action": "html",
-    "disabled": true
+    "options": "disable"
   },
   {
     "description": "Check title is Hey and h1 is Hello",
