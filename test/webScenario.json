@@ -21,6 +21,11 @@
     "param2": "expect(browser.text('h1')).to.equal('Hello')"
   },
   {
+    "description": "Sleep 2s",
+    "action": "sleep",
+    "param1": "2"
+  },
+  {
     "description": "Fill form",
     "action": "fill",
     "param1": "input[type=text]",
