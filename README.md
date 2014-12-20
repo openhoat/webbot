@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/openhoat/webbotjs.png?branch=master)](https://travis-ci.org/openhoat/webbotjs)
+[![NPM version](https://badge.fury.io/js/webbotjs.svg)](http://badge.fury.io/js/webbotjs)
 
 ## What's WebBotjs?
 
