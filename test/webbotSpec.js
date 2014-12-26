@@ -8,7 +8,7 @@ var chai = require('chai')
 
 describe('Helper', function () {
 
-  this.timeout(10000);
+  this.timeout(30000);
 
   it('should start selenium server', function (done) {
     webbot
