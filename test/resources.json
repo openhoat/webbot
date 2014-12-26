@@ -1,4 +1,0 @@
-{
-  "hostname": "random(localhost,127.0.0.1)",
-  "currentMonth": "{{ new Date().toISOString().substring(0,7) }}"
-}
