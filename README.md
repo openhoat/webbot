@@ -1,20 +1,20 @@
-[![Build Status](https://travis-ci.org/openhoat/webbotjs.png?branch=master)](https://travis-ci.org/openhoat/webbotjs)
-[![NPM version](https://badge.fury.io/js/webbotjs.svg)](http://badge.fury.io/js/webbotjs)
+[![Build Status](https://travis-ci.org/openhoat/webbot.png?branch=master)](https://travis-ci.org/openhoat/webbot)
+[![NPM version](https://badge.fury.io/js/webbot.svg)](http://badge.fury.io/js/webbot)
 
-## What's WebBotjs?
+## What's WebBot?
 
-WebBotjs provides a beautiful way to automate web functional tests.
+WebBot provides a beautiful way to automate web functional tests.
 
 ## Installation
 
 To use it directly :
 
-    # npm install -g webbotjs
+    # npm install -g webbot
 
 To use it in your own project and write your own web tests :
 
     # cd my-nodejs-project
-    # npm install webbotjs --save
+    # npm install webbot --save
 
 ## Command line usage
 
@@ -61,7 +61,7 @@ Log messages are written to stderr, while test report is written to stdout.
         2014-02-17 10:00:20.462 - webbot - INFO  - #4 checking assertion : expect(browser.text('title')).to.equal('Hey')
         ...
         2014-02-17 10:00:20.493 - webbot - INFO  - #9 end
-        2014-02-17 10:00:20.493 - webbot - INFO  - WebBotjs test took 0,76312668 seconds
+        2014-02-17 10:00:20.493 - webbot - INFO  - WebBot test took 0,76312668 seconds
         2014-02-17 10:00:20.494 - webbot - INFO  - web server stopped.
 
 5. Mocha returns 1 for a failing test :
@@ -101,7 +101,7 @@ module.exports = { // config/default.js
 Suppose you have a simple http server providing a hello page, the test could be :
 
 ```javascript
-var WebBot = require('webbotjs') // test/myJsonSpec.js
+var WebBot = require('webbot') // test/myJsonSpec.js
   , webBot;
 
 describe('Automate web visit', function () {
@@ -125,14 +125,14 @@ describe('Automate web visit', function () {
 });
 ```
 
-WebBotjs will execute all steps in the JSON array to initialize the browser, visit the page, and check the resulting html page content.
+WebBot will execute all steps in the JSON array to initialize the browser, visit the page, and check the resulting html page content.
 
 ## Test scenario from Google Doc :
 
 Now let's see the same test with a scenario written in a [simple Google Doc](https://docs.google.com/spreadsheet/pub?key=0AilC0U4Eb0tjdDRObHlrTDMySms2d0dGZUhWQi10Wmc&output=html) :
 
 ```javascript
-var WebBot = require('webbotjs') // test/myGdocSpec.js
+var WebBot = require('webbot') // test/myGdocSpec.js
   , webBot;
 
 describe('Automate web visit', function () {
@@ -151,7 +151,7 @@ describe('Automate web visit', function () {
 });
 ```
 
-WebBotjs is able to download a Google Doc if it is published on the web, if an account is specified (login / password), or if an oAuth token is specified.
+WebBot is able to download a Google Doc if it is published on the web, if an account is specified (login / password), or if an oAuth token is specified.
 
 To specify a Google Account, simply add it to options :
 
@@ -184,7 +184,7 @@ To specify a oAuth token (previously got from a usual 3rd party module for examp
           });
 ```
 
-Test samples are provided in /test : [webJsonScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/test/webJsonScenarioSpec.js) [webGdocScenarioSpec](https://github.com/openhoat/webbotjs/tree/master/test/webGdocScenarioSpec.js)
+Test samples are provided in /test : [webJsonScenarioSpec](https://github.com/openhoat/webbot/tree/master/test/webJsonScenarioSpec.js) [webGdocScenarioSpec](https://github.com/openhoat/webbot/tree/master/test/webGdocScenarioSpec.js)
 
 ## Actions
 
@@ -192,7 +192,7 @@ An action is a component defined by a name and a js file.
 
 The action is execute from its name, and optionnal parameters.
 
-Look at the examples in [/lib/actions](https://github.com/openhoat/webbotjs/tree/master/lib/actions) for more information.
+Look at the examples in [/lib/actions](https://github.com/openhoat/webbot/tree/master/lib/actions) for more information.
 
 Default provided actions :
 
@@ -223,14 +223,14 @@ Default provided actions :
     - param8 : regexp to match activation link in email body
     - param9 : poll frequency (default 10000ms)
 
-New web service actions since v0.0.8 : for more informatons look at [wsJsonScenarioSpec.js](https://github.com/openhoat/webbotjs/tree/master/test/wsJsonScenarioSpec.js)
+New web service actions since v0.0.8 : for more informatons look at [wsJsonScenarioSpec.js](https://github.com/openhoat/webbot/tree/master/test/wsJsonScenarioSpec.js)
 
 - wsGet : send a GET request to a web service (params : url, expected http status code, optionnal expected content type, optionnal expected content)
 - wsPost : send a POST request to a web service (params : url, body data, expected http status code, optionnal expected content type, optionnal expected content)
 - wsPut : send a PUT request to a web service (params : url, body data, expected http status code, optionnal expected content type, optionnal expected content)
 - wsDelete : send a DELETE request to a web service (params : url, expected http status code, optionnal expected content type, optionnal expected content)
 
-New soap actions since v0.3.7 : for more informatons look at [soapSpec.js](https://github.com/openhoat/webbotjs/tree/master/test/soapSpec.js)
+New soap actions since v0.3.7 : for more informatons look at [soapSpec.js](https://github.com/openhoat/webbot/tree/master/test/soapSpec.js)
 
 - soapClient (NEW!) : create a soap client
     - param1 : wsdl url
@@ -251,7 +251,7 @@ If it does not match your needs feel free to extend and contribute
 
 ## Extend
 
-To extend WebBotjs, feel free to create new actions and add them at runtime for your custom scenario.
+To extend WebBot, feel free to create new actions and add them at runtime for your custom scenario.
 
 ```javascript
     webBot = new WebBot(baseDir);
@@ -291,6 +291,6 @@ module.exports = { // lib/actions/my-action.js
 };
 ```
 
-WebBotjs is mainly powered by [Zombiejs](http://zombie.labnotes.org/) and [Mocha](http://visionmedia.github.io/mocha/)
+WebBot is mainly powered by [WebdriverIO](http://webdriver.io/) and [Mocha](http://visionmedia.github.io/mocha/)
 
 Enjoy !
