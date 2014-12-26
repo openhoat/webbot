@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/openhoat/webbot.png?branch=develop)](https://travis-ci.org/openhoat/webbot)
+[![Build Status](https://travis-ci.org/openhoat/webbot.png?branch=master)](https://travis-ci.org/openhoat/webbot)
 [![NPM version](https://badge.fury.io/js/webbot.svg)](http://badge.fury.io/js/webbot)
 
 ## What's WebBot?
