@@ -7,21 +7,21 @@ baseDir = path.join(__dirname, '..', '..'); // base dir of the project
 module.exports = { // main configuration for all environments
   env: process.env.NODE_ENV || 'development', // effective environment
   baseDir: baseDir,
-  appName: pkg.name,
   browser: {
-    // logLevel: 'silent',
+    logLevel: 'silent', // possible values : silent verbose
     desiredCapabilities: {
       browserName: 'phantomjs', // available values : firefox chrome phantomjs
       'phantomjs.binary.path': path.join(baseDir, 'node_modules', 'phantomjs', 'bin', 'phantomjs'),
-      javascriptEnabled: true
+      javascriptEnabled: true,
+      platform:'ANY'
     }
   },
-  selenium:{
+  selenium: {
     host: 'localhost',
     port: 4444,
     path: '/wd/hub/status',
-    spawn:{stdio: 'pipe'},
-    args:['-debug']
+    spawn: {stdio: 'pipe'},
+    args: ['-debug']
   },
   mocha: {
     reporter: 'spec',
