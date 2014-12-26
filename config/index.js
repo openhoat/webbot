@@ -1,7 +1,7 @@
 var util = require('hw-util')
   , envPath = './env/'
   , util = require('hw-util')
-  , log = util.logFactory('config')
+  // , log = util.logFactory('config')
   , config;
 
 config = {}; // contains all the configurations

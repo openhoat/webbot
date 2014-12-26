@@ -21,6 +21,7 @@ module.exports = function (grunt) {
         jshintrc: 'jshint.json'
       },
       src: [
+        'config/**/*.js',
         'lib/**/*.js',
         'test/**/*.js'
       ]

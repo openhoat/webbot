@@ -1,5 +1,4 @@
-var pkg = require('../../package')
-  , path = require('path')
+var path = require('path')
   , baseDir;
 
 baseDir = path.join(__dirname, '..', '..'); // base dir of the project
@@ -13,7 +12,7 @@ module.exports = { // main configuration for all environments
       browserName: 'phantomjs', // available values : firefox chrome phantomjs
       'phantomjs.binary.path': path.join(baseDir, 'node_modules', 'phantomjs', 'bin', 'phantomjs'),
       javascriptEnabled: true,
-      platform:'ANY'
+      platform: 'ANY'
     }
   },
   selenium: {
