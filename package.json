@@ -21,7 +21,7 @@
     }
   ],
   "engines": {
-    "node": "*"
+    "node": "node >= 0.10.x"
   },
   "bin": {
     "webbot": "./bin/webbot"
@@ -35,7 +35,7 @@
     "bluebird": "2.4.2",
     "canvas": "1.1.6",
     "chai": "1.10.0",
-    "hw-util": "1.0.1",
+    "hw-util": "1.0.2",
     "mocha": "2.0.1",
     "phantomjs": "1.9.13",
     "selenium-standalone": "2.43.1-5",
