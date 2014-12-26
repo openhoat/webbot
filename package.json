@@ -1,7 +1,7 @@
 {
-  "name": "webbotjs",
+  "name": "webbot",
   "version": "1.0.0",
-  "description": "WebBotjs helps you to test web sites",
+  "description": "WebBot helps you to test web sites",
   "main": "lib/webbot",
   "author": {
     "name": "Olivier Penhoat",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/openhoat/webbotjs.git"
+    "url": "git://github.com/openhoat/webbot.git"
   },
   "bugs": {
-    "url": "https://github.com/openhoat/webbotjs/issues"
+    "url": "https://github.com/openhoat/webbot/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/openhoat/webbotjs/blob/master/LICENSE"
+      "url": "https://github.com/openhoat/webbot/blob/master/LICENSE"
     }
   ],
   "engines": {
