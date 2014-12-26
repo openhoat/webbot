@@ -30,7 +30,7 @@ module.exports = function (grunt) {
         options: {
           reporter: 'spec'
         },
-        src: ['test/webJsonScenarioSpec.js', 'test/wsJsonScenarioSpec.js', 'test/webJsonDlScenarioSpec.js', 'test/webGdocScenarioSpec.js', 'test/wsJsonDlScenarioSpec.js', 'test/soapSpec.js']
+        src: ['test/**/*.js']
       }
     },
     exec: {
@@ -44,7 +44,6 @@ module.exports = function (grunt) {
     gruntConfig.jshint.options.reporterOutput = 'dist/reports/jshint_checkstyle.xml';
     gruntConfig.mochaTest.test.options.reporter = 'xunit-file';
     gruntConfig.mochaTest.test.options.quiet = false;
-    require('./config/default').log.colorEnabled = false;
     process.env.XUNIT_FILE = 'dist/reports/xunit.xml';
   }
   require('load-grunt-tasks')(grunt);
