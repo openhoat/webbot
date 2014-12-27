@@ -8,10 +8,11 @@ var chai = require('chai')
   , webbot = require('../lib/webbot');
 
 describe('Helper', function () {
+  var serverPort = 3999;
 
   this.timeout(3000);
 
-  it('should start selenium server', function (done) {
+  xit('should start selenium server', function (done) {
     webbot
       .startSelenium(config.selenium)
       .then(function () {
@@ -49,7 +50,7 @@ describe('Helper', function () {
             res.end('<html><body><h1>hello</h1></body></html>');
           });
           expect(httpServer).to.be.ok;
-          httpServer.listen(4567, function (err) {
+          httpServer.listen(serverPort, function (err) {
             expect(err).to.be.undefined;
             log.info('http server ready');
             done();
@@ -72,7 +73,7 @@ describe('Helper', function () {
 
     it('should connect to local demo web site', function () {
       return browser
-        .url('http://localhost:4567/')
+        .url(util.format('http://localhost:%s/', serverPort))
         .getText('h1', function (err, value) {
           if (err) {
             log.error(err);
