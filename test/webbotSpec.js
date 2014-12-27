@@ -48,7 +48,9 @@ describe('Helper', function () {
             res.writeHead(200, {'Content-Type': 'text/html'});
             res.end('<html><body><h1>hello</h1></body></html>');
           });
-          httpServer.listen(8088, function () {
+          expect(httpServer).to.be.ok;
+          httpServer.listen(4567, function (err) {
+            expect(err).to.be.undefined;
             log.info('http server ready');
             done();
           });
@@ -60,6 +62,7 @@ describe('Helper', function () {
         .stopSelenium()
         .then(function () {
           log.info('closing http server');
+          expect(httpServer).to.be.ok;
           httpServer.close(function () {
             log.info('http server closed');
             done();
@@ -69,7 +72,7 @@ describe('Helper', function () {
 
     it('should connect to local demo web site', function () {
       return browser
-        .url('http://localhost:8088/')
+        .url('http://localhost:4567/')
         .getText('h1', function (err, value) {
           if (err) {
             log.error(err);
