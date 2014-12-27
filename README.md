@@ -74,18 +74,13 @@ describe('Simple web test', function () {
 #### config/scenarii/default/mywebtest.json :
 
 ```js
-{
-  "timeout": 10000
-}
+{ "timeout": 10000 }
 ```
 
 #### config/scenarii/live/mywebtest.json
 
 ```js
-{
-  "url": "http://www.google.com",
-  "title": "Google"
-}
+{ "url": "http://www.google.com", "title": "Google" }
 ```
 
 ### Play WebBot :
