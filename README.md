@@ -62,25 +62,25 @@ Result :
 - --commands (-c) : extra client commands module to register, it should be a collection of functions to add to the browser object as specified in [WebdriverIO custom commands](http://www.webdriver.io/guide/usage/customcommands.html) (example : lib/myCustomCommands)
 - --loglevel (-l) : log level to enable (error|warn|info|debug|trace)
 
-## Use cases :
+### Use cases :
 
-### See log details
+#### See log details
 
     # webbot -e live -s mywebtest -l trace
 
-### Execute with Firefox
+#### Execute with Firefox
 
     # webbot -e live -s mywebtest -o '{"desiredCapabilities":{"browserName": "firefox"}}'
 
-### Execute with Chrome
+#### Execute with Chrome
 
     # webbot -e live -s mywebtest -o '{"desiredCapabilities":{"browserName": "chrome"}}'
 
-### Execute with Internet Explorer 11 powered by a VM registered to a selenium hub server
+#### Execute with Internet Explorer 11 powered by a VM registered to a selenium hub server
 
     # webbot -e live -s mywebtest -o '{"desiredCapabilities":{"browserName": "internet explorer","version":"11"},"host":"myseleniumserver.com","port":4445}' -l trace
 
-### Execute with a custom module providing some extra client commands
+#### Execute with a custom module providing some extra client commands
 
     # cd mycustomproject
     # webbot -e live -s mywebtest -c lib/myCustomCommands
