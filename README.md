@@ -14,13 +14,17 @@ WebBot provides a beautiful way to automate web functional tests.
 
 ## Installation :
 
+```bash
     # npm install -g webbot
+```
 
 ## Usage :
 
 ### Create a test project :
 
+```bash
     # mkdir myproject && cd myproject
+```
 
 ### Create expected directory structure :
 
@@ -39,7 +43,7 @@ Example of directory structure :
 
 ### Create a web test script : scenarii/mywebtest.js
 
-```
+```js
 var chai = require('chai')
   , webbot = require('webbot')
   , expect = chai.expect
@@ -69,19 +73,23 @@ describe('Simple web test', function () {
 
 ### Play WebBot :
 
+```bash
     # webbot -e live -s mywebtest
+```
 
 Result :
 
-      webbot:info webbot - using browser : phantomjs [platform : ANY] +0ms
+```bash
+webbot:info webbot - using browser : phantomjs [platform : ANY] +0ms
 
-      Simple web test
-      webbot:info browser - #1 - Connect to http://www.google.com +1s
-      webbot:info browser - #2 - Check page title : Google +827ms
-        ✓ should home page (1782ms)
+Simple web test
+webbot:info browser - #1 - Connect to http://www.google.com +1s
+webbot:info browser - #2 - Check page title : Google +827ms
+✓ should home page (1782ms)
 
 
-      1 passing (2s)
+1 passing (2s)
+```
 
 ### Command line options :
 
