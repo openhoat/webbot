@@ -62,6 +62,11 @@ Result :
 - --commands (-c) : extra client commands module to register, it should be a collection of functions to add to the browser object as specified in [WebdriverIO custom commands](http://www.webdriver.io/guide/usage/customcommands.html) (example : lib/myCustomCommands)
 - --loglevel (-l) : log level to enable (error|warn|info|debug|trace)
 
+## Example of usages :
+
+TODO : coming soon...
+
+
 WebBot is mainly powered by [WebdriverIO](http://webdriver.io/) and [Mocha](http://visionmedia.github.io/mocha/)
 
 Enjoy !
