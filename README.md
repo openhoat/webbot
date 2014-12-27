@@ -89,15 +89,15 @@ describe('Simple web test', function () {
 
 #### Result :
 
-webbot:info webbot - using browser : phantomjs [platform : ANY] +0ms
+    webbot:info webbot - using browser : phantomjs [platform : ANY] +0ms
 
-Simple web test
-webbot:info browser - #1 - Connect to http://www.google.com +1s
-webbot:info browser - #2 - Check page title : Google +827ms
-✓ should home page (1782ms)
+    Simple web test
+    webbot:info browser - #1 - Connect to http://www.google.com +1s
+    webbot:info browser - #2 - Check page title : Google +827ms
+    ✓ should home page (1782ms)
 
 
-1 passing (2s)
+    1 passing (2s)
 
 ### Command line options :
 
