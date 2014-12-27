@@ -37,7 +37,7 @@ Example of directory structure :
 - [config](https://github.com/openhoat/webbot/tree/master/config/scenarii)
 - [scenarii](https://github.com/openhoat/webbot/tree/master/scenarii)
 
-### Run :
+### Play WebBot :
 
     # webbot -e live -s mywebtest
 
