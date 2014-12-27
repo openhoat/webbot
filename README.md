@@ -87,7 +87,7 @@ describe('Simple web test', function () {
 
     # webbot -e live -s mywebtest
 
-Result :
+#### Result :
 
 webbot:info webbot - using browser : phantomjs [platform : ANY] +0ms
 
