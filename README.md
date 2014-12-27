@@ -53,7 +53,7 @@ Result :
 
       1 passing (2s)
 
-## Command options :
+### Command line options :
 
 - --dir (-d) : base directory of scenarii and configuration files, it should respect directory structure (default : current dir)
 - --env (-e) : environnement name to use for configuration, it should be a child of config directory where to find configuration json files (example : live)
