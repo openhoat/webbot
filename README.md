@@ -37,7 +37,9 @@ Example of directory structure :
 - [config](https://github.com/openhoat/webbot/tree/master/config/scenarii)
 - [scenarii](https://github.com/openhoat/webbot/tree/master/scenarii)
 
-### Create a web test script : scenarii/mywebtest.js
+### Create a web test script :
+
+#### scenarii/mywebtest.js :
 
 ```js
 var chai = require('chai')
@@ -65,6 +67,25 @@ describe('Simple web test', function () {
       .call(done);
   });
 });
+```
+
+### Create test config :
+
+#### config/scenarii/default/mywebtest.json :
+
+```js
+{
+  "timeout": 10000
+}
+```
+
+#### config/scenarii/live/mywebtest.json
+
+```js
+{
+  "url": "http://www.google.com",
+  "title": "Google"
+}
 ```
 
 ### Play WebBot :
