@@ -14,17 +14,13 @@ WebBot provides a beautiful way to automate web functional tests.
 
 ## Installation :
 
-```bash
     # npm install -g webbot
-```
 
 ## Usage :
 
 ### Create a test project :
 
-```bash
     # mkdir myproject && cd myproject
-```
 
 ### Create expected directory structure :
 
@@ -73,13 +69,10 @@ describe('Simple web test', function () {
 
 ### Play WebBot :
 
-```bash
     # webbot -e live -s mywebtest
-```
 
 Result :
 
-```bash
 webbot:info webbot - using browser : phantomjs [platform : ANY] +0ms
 
 Simple web test
@@ -89,7 +82,6 @@ webbot:info browser - #2 - Check page title : Google +827ms
 
 
 1 passing (2s)
-```
 
 ### Command line options :
 
