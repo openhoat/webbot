@@ -10,6 +10,7 @@ WebBot provides a beautiful way to automate web functional tests.
 - Works with embedded phantomjs browser, any installed usual browser, or any available selenium grid hub
 - Provides a clean frame to separate config data and scenario
 - Provides a simple command line to execute web tests, easily integrate them into a CI, and create industrial testing projects
+- Provides a browser object augmented with useful methods (see [client-commands.js](https://github.com/openhoat/webbot/blob/master/lib/client-commands.js))
 
 ## Installation :
 
