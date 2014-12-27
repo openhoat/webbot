@@ -36,7 +36,7 @@ module.exports = function (grunt) {
     },
     exec: {
       coverage: {
-        command: './node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000 test/webJsonScenarioSpec.js test/wsJsonScenarioSpec.js test/webJsonDlScenarioSpec.js test/webGdocScenarioSpec.js test/wsJsonDlScenarioSpec.js test/soapSpec.js'
+        command: './node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000 test/**/*.js'
       }
     }
   };
