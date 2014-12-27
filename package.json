@@ -1,6 +1,6 @@
 {
   "name": "webbot",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "WebBot helps you to test web sites",
   "main": "lib/webbot",
   "author": {
