@@ -32,7 +32,7 @@ WebBot provides a beautiful way to automate web functional tests.
     - live (an environment called 'live')
         - mywebtest.[js|json] (will override default config)
 
-Example of directory structure :
+#### Example of directory structure :
 
 - [config](https://github.com/openhoat/webbot/tree/master/config/scenarii)
 - [scenarii](https://github.com/openhoat/webbot/tree/master/scenarii)
