@@ -2,15 +2,16 @@
 
 var chai = require('chai')
   , expect = chai.expect
-//, log = util.logFactory('webbotSpec')
+  , util = require('hw-util')
+  , log = util.logFactory('webbotSpec')
   , config = require('../config')
   , webbot = require('../lib/webbot');
 
 describe('Helper', function () {
 
-  this.timeout(30000);
+  this.timeout(3000);
 
-  it('should start selenium server', function (done) {
+  xit('should start selenium server', function (done) {
     webbot
       .startSelenium(config.selenium)
       .then(function () {
@@ -23,9 +24,11 @@ describe('Helper', function () {
   });
 
   describe('browser tests', function () {
-    var options, browser;
+    var http = require('http')
+      , httpServer
+      , options, browser;
 
-    before(function () {
+    before(function (done) {
       options = {
         selenium: config.selenium,
         browser: {
@@ -34,24 +37,46 @@ describe('Helper', function () {
           desiredCapabilities: config.browser.desiredCapabilities
         }
       };
-      return webbot
+      webbot
         .init(options)
         .then(function () {
           browser = webbot.getBrowser();
+        })
+        .then(function () {
+          log.info('creating http server');
+          httpServer = http.createServer(function (req, res) {
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.end('<html><body><h1>hello</h1></body></html>');
+          });
+          httpServer.listen(8088, function () {
+            log.info('http server ready');
+            done();
+          });
         });
     });
 
-    after(function () {
-      return webbot
-        .stopSelenium();
+    after(function (done) {
+      webbot
+        .stopSelenium()
+        .then(function () {
+          log.info('closing http server');
+          httpServer.close(function () {
+            log.info('http server closed');
+            done();
+          });
+        });
     });
 
-    it('should connect to web site', function () {
+    it('should connect to local demo web site', function () {
       return browser
-        .url('http://www.google.com')
-        .getTitle(function (err, value) {
+        .url('http://localhost:8088/')
+        .getText('h1', function (err, value) {
+          if (err) {
+            log.error(err);
+          }
           expect(err).to.be.undefined;
-          expect(value).to.equal('Google');
+          log.trace('value :', value);
+          expect(value).to.equal('hello');
         })
         .end();
     });

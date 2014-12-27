@@ -40,6 +40,9 @@ module.exports = function (grunt) {
       }
     }
   };
+  if (!process.env.DEBUG) {
+    process.env.DEBUG = '*:info|warn|error';
+  }
   if (grunt.option('ci')) {
     gruntConfig.jshint.options.reporter = 'checkstyle';
     gruntConfig.jshint.options.reporterOutput = 'dist/reports/jshint_checkstyle.xml';
