@@ -39,31 +39,33 @@ Example of directory structure :
 
 ### Create a web test script : scenarii/mywebtest.js
 
-    var chai = require('chai')
-      , webbot = require('webbot')
-      , expect = chai.expect
-      , browser, scenario;
+```
+var chai = require('chai')
+  , webbot = require('webbot')
+  , expect = chai.expect
+  , browser, scenario;
 
-    browser = webbot.getBrowser();
-    scenario = webbot.getScenario();
+browser = webbot.getBrowser();
+scenario = webbot.getScenario();
 
-    describe('Simple web test', function () {
-      after(function (done) {
-        browser
-          .end(done);
-      });
-      it('should check web page title', function (done) {
-        browser
-          .log('Connect to %s', scenario.config.url)
-          .url(scenario.config.url)
-          .log('Check page title : %s', scenario.config.title)
-          .getTitle(function (err, value) {
-            expect(err).to.be.undefined;
-            expect(value).to.equal(scenario.config.title);
-          })
-          .call(done);
-      });
-    });
+describe('Simple web test', function () {
+  after(function (done) {
+    browser
+      .end(done);
+  });
+  it('should check web page title', function (done) {
+    browser
+      .log('Connect to %s', scenario.config.url)
+      .url(scenario.config.url)
+      .log('Check page title : %s', scenario.config.title)
+      .getTitle(function (err, value) {
+        expect(err).to.be.undefined;
+        expect(value).to.equal(scenario.config.title);
+      })
+      .call(done);
+  });
+});
+```
 
 ### Play WebBot :
 
