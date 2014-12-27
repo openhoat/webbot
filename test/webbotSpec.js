@@ -11,7 +11,7 @@ describe('Helper', function () {
 
   this.timeout(3000);
 
-  xit('should start selenium server', function (done) {
+  it('should start selenium server', function (done) {
     webbot
       .startSelenium(config.selenium)
       .then(function () {
