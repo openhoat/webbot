@@ -10,9 +10,10 @@ module.exports = { // main configuration for all environments
     logLevel: 'silent', // possible values : silent verbose
     desiredCapabilities: {
       browserName: 'phantomjs', // available values : firefox chrome phantomjs
-      'phantomjs.binary.path': path.join(baseDir, 'node_modules', 'phantomjs', 'bin', 'phantomjs'),
       javascriptEnabled: true,
-      platform: 'ANY'
+      platform: 'ANY',
+      'phantomjs.binary.path': path.join(baseDir, 'node_modules', 'phantomjs', 'bin', 'phantomjs'),
+      'phantomjs.cli.args': ['--ignore-ssl-errors=true',  '--web-security=false']
     }
   },
   selenium: {
