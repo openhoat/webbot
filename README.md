@@ -16,13 +16,13 @@ WebBot provides a beautiful way to automate web functional tests.
 
     # npm install -g webbot
 
-## Usage :
+## How to use WebBot :
 
-### Create a test project :
+### 1. Create a test project :
 
     # mkdir myproject && cd myproject
 
-### Create expected directory structure :
+### 2. Create expected directory structure :
 
 - scenarii (this is where to place test scripts)
     - mywebtest.js
@@ -37,7 +37,7 @@ WebBot provides a beautiful way to automate web functional tests.
 - [config](https://github.com/openhoat/webbot/tree/master/config/scenarii)
 - [scenarii](https://github.com/openhoat/webbot/tree/master/scenarii)
 
-### Create a web test script :
+### 3. Create a web test script :
 
 #### scenarii/mywebtest.js :
 
@@ -69,7 +69,7 @@ describe('Simple web test', function () {
 });
 ```
 
-### Create test config :
+### 4. Create test config :
 
 #### config/scenarii/default/mywebtest.json :
 
@@ -83,7 +83,7 @@ describe('Simple web test', function () {
 { "url": "http://www.google.com", "title": "Google" }
 ```
 
-### Play WebBot :
+### 5. Now play :
 
     # webbot -e live -s mywebtest
 
