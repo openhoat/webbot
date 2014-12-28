@@ -128,7 +128,9 @@ VM is registered to a selenium hub server
 
     # webbot -e live -s mywebtest -o '{"desiredCapabilities":{"browserName": "internet explorer","version":"11"},"host":"myseleniumserver.com","port":4445}' -l trace
 
-#### Execute with a custom module providing some extra client commands
+#### Execute with extra client commands
+
+Specified module provides functions used as extra client commands
 
     # cd mycustomproject
     # webbot -e live -s mywebtest -c lib/myCustomCommands
