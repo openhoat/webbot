@@ -28,9 +28,9 @@ WebBot provides a beautiful way to automate web functional tests.
     - mywebtest.js
 - config (optionnal place for test scripts configurations)
     - default (default environment)
-        - mywebtest.[js|json]
+        - mywebtest.js or .json
     - live (an environment called 'live')
-        - mywebtest.[js|json] (will override default config)
+        - mywebtest.js or .json (will override default config)
 
 #### Example of directory structure :
 
