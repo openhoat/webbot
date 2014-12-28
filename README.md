@@ -122,7 +122,9 @@ describe('Simple web test', function () {
 
     # webbot -e live -s mywebtest -o '{"desiredCapabilities":{"browserName": "chrome"}}'
 
-#### Execute with Internet Explorer 11 powered by a VM registered to a selenium hub server
+#### Execute with IE 11 / VM
+
+VM is registered to a selenium hub server
 
     # webbot -e live -s mywebtest -o '{"desiredCapabilities":{"browserName": "internet explorer","version":"11"},"host":"myseleniumserver.com","port":4445}' -l trace
 
