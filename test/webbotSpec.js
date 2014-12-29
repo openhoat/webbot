@@ -12,7 +12,7 @@ describe('Helper', function () {
 
   this.timeout(10000);
 
-  xit('should start selenium server', function (done) {
+  it('should start selenium server', function (done) {
     webbot
       .startSelenium(config.selenium)
       .then(function () {
@@ -24,13 +24,9 @@ describe('Helper', function () {
       .then(done, done);
   });
 
-  describe('browser tests', function () {
-    var http = require('http')
-      , httpServer
-      , options, browser;
-
-    before(function (done) {
-      options = {
+  describe('simple local web test', function () {
+    var browser, testHttpServer
+      , options = {
         selenium: config.selenium,
         browser: {
           verbose: true,
@@ -38,55 +34,39 @@ describe('Helper', function () {
           desiredCapabilities: config.browser.desiredCapabilities
         }
       };
-      webbot
-        .init(options)
-        .then(function () {
-          browser = webbot.getBrowser();
+
+    before(function () {
+      return util
+        .startHttpServer({port: serverPort})
+        .then(function (httpServer) {
+          testHttpServer = httpServer;
         })
         .then(function () {
-          log.info('creating http server');
-          httpServer = http.createServer(function (req, res) {
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.end('<html><body><h1>hello</h1></body></html>');
-          });
-          expect(httpServer).to.be.ok;
-          httpServer.listen(serverPort, function (err) {
-            expect(err).to.be.undefined;
-            log.info('http server ready');
-            done();
-          });
+          log.trace('args :', arguments);
+          return webbot
+            .init(options)
+            .then(function () {
+              browser = webbot.getBrowser();
+            });
         });
     });
 
-    after(function (done) {
-      webbot
+    after(function () {
+      return webbot
         .stopSelenium()
         .then(function () {
-          log.info('closing http server');
-          expect(httpServer).to.be.ok;
-          httpServer.close(function () {
-            log.info('http server closed');
-            done();
-          });
+          return util.stopHttpServer({httpServer: testHttpServer});
         });
     });
 
     it('should connect to local demo web site', function () {
       return browser
-        .url(util.format('http://localhost:%s/', serverPort))
-        .getText('h1', function (err, value) {
-          if (err) {
-            log.error(err);
-          }
-          expect(err).to.be.undefined;
-          log.trace('value :', value);
-          expect(value).to.equal('hello');
-        })
+        .url(util.format('http://localhost:%s/hello', serverPort))
+        .waitForText('h1', 'Path')
+        .waitForText('h2', '/hello')
         .end();
     });
 
   });
 
 });
-
-
