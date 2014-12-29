@@ -1,6 +1,6 @@
 {
   "name": "webbot",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "WebBot helps you to test web sites",
   "main": "lib/webbot",
   "author": {
@@ -34,9 +34,11 @@
     "async": "0.9.0",
     "bluebird": "2.4.2",
     "chai": "1.10.0",
+    "findup-sync": "0.2.1",
     "hw-util": ">=1.0.5",
     "mocha": "2.0.1",
     "phantomjs": "1.9.13",
+    "resolve": "1.0.0",
     "selenium-standalone": "2.43.1-5",
     "webdriverio": "2.4.0",
     "yargs": "1.3.3"
