@@ -10,7 +10,7 @@ var chai = require('chai')
 describe('Helper', function () {
   var serverPort = 3999;
 
-  this.timeout(10000);
+  this.timeout(30000);
 
   it('should start selenium server', function (done) {
     webbot

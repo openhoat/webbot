@@ -3,5 +3,8 @@ language: node_js
 node_js:
   - 0.10
 
+env:
+  - DEBUG="*:trace|debug|info|warn|error"
+
 before_script:
   - "npm i -g mocha grunt-cli"
