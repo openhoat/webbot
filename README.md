@@ -94,6 +94,16 @@ describe('Simple web test', function () {
 
 ### 5. Now play :
 
+#### Find available scenarii :
+
+    # webbot -f
+
+#### Result :
+
+    mywebtest
+
+#### Run a scenario :
+
     # webbot -e live -s mywebtest
 
 #### Result :
