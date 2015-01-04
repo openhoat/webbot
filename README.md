@@ -14,7 +14,16 @@ WebBot provides a beautiful way to automate web functional tests.
 
 ## Installation :
 
+Globally :
+
     # npm install -g webbot
+    # webbot
+
+Or local to your project :
+
+    # cd myproject
+    # npm install webbot --save
+    # ./node_modules/webbot/bin/webbot
 
 ## How to use WebBot :
 
