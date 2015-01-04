@@ -23,7 +23,7 @@ Or local to your project :
 
     # cd myproject
     # npm install webbot --save
-    # ./node_modules/webbot/bin/webbot
+    # $(npm bin)/webbot
 
 ## How to use WebBot :
 
