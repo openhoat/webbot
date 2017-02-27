@@ -155,6 +155,6 @@ Specified module provides functions used as extra client commands
     # webbot -e live -s mywebtest -c lib/myCustomCommands
 
 
-WebBot is mainly powered by [WebdriverIO](http://webdriver.io/) and [Mocha](http://visionmedia.github.io/mocha/)
+WebBot is mainly powered by [WebdriverIO](http://webdriver.io/) and [Mocha](http://mochajs.org/)
 
 Enjoy !
