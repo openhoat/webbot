@@ -37,7 +37,7 @@
     "findup-sync": "0.2.1",
     "hw-util": ">=1.0.7",
     "mocha": "2.0.1",
-    "phantomjs": "1.9.13",
+    "phantomjs": "1.9.15",
     "resolve": "1.0.0",
     "selenium-standalone": "2.43.1-5",
     "webdriverio": "2.4.0",
